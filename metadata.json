@@ -1,0 +1,6 @@
+{
+  "name": "Depósito Fácil",
+  "description": "SaaS completo de gestão para depósitos de bebidas e adegas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
