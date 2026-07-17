@@ -24,8 +24,23 @@ export default function Auth({ onLogin, onRegisterCompany, allUsers, logoUrl }: 
 
   const handleLoginSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simple mock auth matching the email
-    const matched = allUsers.find(u => u.email.toLowerCase() === email.trim().toLowerCase());
+    const cleanEmail = email.trim().toLowerCase();
+    
+    // Simple mock auth matching the email with a master fallback for Superadmin
+    let matched = allUsers.find(u => u.email.toLowerCase() === cleanEmail);
+    if (!matched && cleanEmail === "super@depositofacil.com.br") {
+      matched = {
+        id: "usr_super",
+        companyId: "SAAS",
+        name: "Dr. Almir Ribeiro",
+        email: "super@depositofacil.com.br",
+        phone: "(11) 99999-9999",
+        role: "SUPERADMIN" as any,
+        isActive: true,
+        avatarUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuAocdgrYGUMLbk0cwVy7o1ZUYS3MrIKsERwwxw-Qu3qR7YaqIHDH4JdQBtiBllo-314I5Jb-vi-xSmANMGRqIx8hj9LftmFGxCeRDDi_xANkdm5MEzWEsPTeQphZStHLsXk4Tb8_zHGaQjiUve7c1oqH-co6Z4tzSbwpQ7G1q8-Z2k0kXveXYYVyr8c725jm62JbjEssBIjfBHDxqfNrjFpilqJh8msCEHctZaRBntx2NNVxo6hCN3l"
+      };
+    }
+
     if (matched) {
       onLogin(matched);
       alert(`Bem-vindo de volta, ${matched.name}!`);
@@ -228,8 +243,17 @@ export default function Auth({ onLogin, onRegisterCompany, allUsers, logoUrl }: 
             <button
               type="button"
               onClick={() => {
-                const usr = allUsers.find(u => u.id === "usr_super");
-                if (usr) onLogin(usr);
+                const usr = allUsers.find(u => u.id === "usr_super") || {
+                  id: "usr_super",
+                  companyId: "SAAS",
+                  name: "Dr. Almir Ribeiro",
+                  email: "super@depositofacil.com.br",
+                  phone: "(11) 99999-9999",
+                  role: "SUPERADMIN" as any,
+                  isActive: true,
+                  avatarUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuAocdgrYGUMLbk0cwVy7o1ZUYS3MrIKsERwwxw-Qu3qR7YaqIHDH4JdQBtiBllo-314I5Jb-vi-xSmANMGRqIx8hj9LftmFGxCeRDDi_xANkdm5MEzWEsPTeQphZStHLsXk4Tb8_zHGaQjiUve7c1oqH-co6Z4tzSbwpQ7G1q8-Z2k0kXveXYYVyr8c725jm62JbjEssBIjfBHDxqfNrjFpilqJh8msCEHctZaRBntx2NNVxo6hCN3l"
+                };
+                onLogin(usr);
               }}
               className="bg-neutral-950 hover:bg-neutral-850 border border-neutral-800 hover:border-emerald-500/50 p-2 rounded text-left flex flex-col justify-between h-14 transition-all group"
             >

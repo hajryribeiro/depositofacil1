@@ -1256,6 +1256,25 @@ export const syncDatabaseWithFirebase = async () => {
         snapshot.forEach(doc => {
           list.push(doc.data());
         });
+
+        // Safety check: always ensure the Superadmin user is present in the database
+        if (key === "df_users") {
+          const hasSuper = list.some(u => u.role === UserRole.SUPERADMIN || u.id === "usr_super");
+          if (!hasSuper) {
+            const superUser = SEED_USERS.find(u => u.role === UserRole.SUPERADMIN || u.id === "usr_super");
+            if (superUser) {
+              list.push(superUser);
+              try {
+                // Safely write to Firestore so it's permanently stored on the cloud as well
+                const docRef = doc(dbFirestore, "users", superUser.id);
+                setDoc(docRef, superUser, { merge: true });
+              } catch (err) {
+                console.error("Failed to write superuser to firestore:", err);
+              }
+            }
+          }
+        }
+
         localStorage.setItem(key, JSON.stringify(list));
       } else {
         // Upload initial local/seed data to Firestore
@@ -1344,7 +1363,18 @@ export const db = {
   },
 
   // Users
-  getUsers: (): User[] => getStorage(KEYS.USERS, SEED_USERS),
+  getUsers: (): User[] => {
+    const list = getStorage<User[]>(KEYS.USERS, SEED_USERS);
+    const hasSuper = list.some(u => u.role === UserRole.SUPERADMIN || u.id === "usr_super");
+    if (!hasSuper) {
+      const superUser = SEED_USERS.find(u => u.role === UserRole.SUPERADMIN || u.id === "usr_super");
+      if (superUser) {
+        list.push(superUser);
+        localStorage.setItem(KEYS.USERS, JSON.stringify(list));
+      }
+    }
+    return list;
+  },
   saveUsers: (data: User[]) => setStorage(KEYS.USERS, data),
   getUsersByCompany: (companyId: string) => db.getUsers().filter(u => u.companyId === companyId),
   addUser: (user: User) => {
