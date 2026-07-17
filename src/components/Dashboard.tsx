@@ -369,29 +369,7 @@ export default function Dashboard({
       </div>
 
       {/* Critical Status Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        {/* Pedidos em Aberto */}
-        <div className="bg-neutral-900/40 border border-neutral-800 p-4 rounded-xl flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 flex items-center justify-center">
-            <ShoppingCart className="w-5 h-5" />
-          </div>
-          <div>
-            <span className="text-[10px] text-neutral-400 font-mono uppercase tracking-wider block">Pedidos em Separação</span>
-            <p className="text-lg font-bold text-neutral-100">{metrics.openOrdersCount} abertos</p>
-          </div>
-        </div>
-
-        {/* Pedidos em Entrega */}
-        <div className="bg-neutral-900/40 border border-neutral-800 p-4 rounded-xl flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-teal-500/10 border border-teal-500/20 text-teal-500 flex items-center justify-center">
-            <Truck className="w-5 h-5" />
-          </div>
-          <div>
-            <span className="text-[10px] text-neutral-400 font-mono uppercase tracking-wider block">Pedidos em Rota</span>
-            <p className="text-lg font-bold text-neutral-100">{metrics.deliveryOrdersCount} em trânsito</p>
-          </div>
-        </div>
-
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Caixas Abertos */}
         <div className="bg-neutral-900/40 border border-neutral-800 p-4 rounded-xl flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">

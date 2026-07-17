@@ -89,22 +89,10 @@ export default function Sidebar({
       roles: [UserRole.ADMIN, UserRole.GERENTE, UserRole.ESTOQUISTA]
     },
     {
-      id: "crm",
-      label: "Clientes & Vasilhames",
-      icon: Users,
-      roles: [UserRole.ADMIN, UserRole.GERENTE, UserRole.OPERADOR_CAIXA, UserRole.FINANCEIRO]
-    },
-    {
       id: "finance",
       label: "Financeiro & Fiados",
       icon: DollarSign,
       roles: [UserRole.ADMIN, UserRole.GERENTE, UserRole.FINANCEIRO]
-    },
-    {
-      id: "logistics",
-      label: "Pedidos & Entregas",
-      icon: Truck,
-      roles: [UserRole.ADMIN, UserRole.GERENTE, UserRole.OPERADOR_CAIXA, UserRole.ENTREGADOR]
     },
     {
       id: "reports",
@@ -305,7 +293,7 @@ export default function Sidebar({
                     } else if (usr.role === UserRole.ESTOQUISTA) {
                       setActiveTab("products");
                     } else if (usr.role === UserRole.ENTREGADOR) {
-                      setActiveTab("logistics");
+                      setActiveTab("dashboard");
                     } else {
                       setActiveTab("dashboard");
                     }

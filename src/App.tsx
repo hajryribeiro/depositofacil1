@@ -66,9 +66,7 @@ import POS from "./components/POS";
 import Products from "./components/Products";
 import Stock from "./components/Stock";
 import CashierControl from "./components/CashierControl";
-import CRM from "./components/CRM";
 import Finance from "./components/Finance";
-import Logistics from "./components/Logistics";
 import SaaSAdmin from "./components/SaaSAdmin";
 import SettingsComponent from "./components/Settings";
 import Auth from "./components/Auth";
@@ -461,29 +459,6 @@ export default function App() {
           />
         )}
 
-        {activeTab === "crm" && (
-          <CRM 
-            companyId={activeCompanyId}
-            clients={getClients()}
-            suppliers={[{ 
-              id: "s1", 
-              companyId: activeCompanyId, 
-              name: "Distribuidora Ambev", 
-              corporateName: "Distribuidora Ambev",
-              tradingName: "Distribuidora Ambev",
-              phone: "(11) 98888-7777", 
-              contactPerson: "Marcos Vendedor", 
-              brandsSupplied: ["Skol", "Brahma", "Budweiser"],
-              isActive: true
-            }]}
-            vasilhames={[]}
-            onAddClient={handleAddClient}
-            onUpdateClient={handleUpdateClient}
-            onAddSupplier={handleAddSupplier}
-            onAddVasilhame={handleAddVasilhame}
-          />
-        )}
-
         {activeTab === "finance" && (
           <Finance 
             companyId={activeCompanyId}
@@ -493,15 +468,6 @@ export default function App() {
             bills={bills}
             onAddBill={handleAddBill}
             onUpdateBill={handleUpdateBill}
-          />
-        )}
-
-        {activeTab === "logistics" && (
-          <Logistics 
-            companyId={activeCompanyId}
-            orders={orders}
-            onUpdateOrderStatus={handleUpdateOrderStatus}
-            currentUserRole={currentUser.role}
           />
         )}
 
