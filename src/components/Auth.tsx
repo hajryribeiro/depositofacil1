@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { Beer, Lock, Mail, Store, UserPlus, Sparkles } from "lucide-react";
 import { User } from "../types";
+import SaaSLogo from "./SaaSLogo";
 
 interface AuthProps {
   onLogin: (user: User) => void;
   onRegisterCompany: (companyName: string, adminName: string, adminEmail: string) => void;
   allUsers: User[];
+  logoUrl?: string;
 }
 
-export default function Auth({ onLogin, onRegisterCompany, allUsers }: AuthProps) {
+export default function Auth({ onLogin, onRegisterCompany, allUsers, logoUrl }: AuthProps) {
   const [activeMode, setActiveMode] = useState<"login" | "register">("login");
 
   // Login form state
@@ -53,8 +55,8 @@ export default function Auth({ onLogin, onRegisterCompany, allUsers }: AuthProps
         
         {/* Brand Header */}
         <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.1)]">
-            <Beer className="w-7 h-7" />
+          <div className="flex justify-center mx-auto">
+            <SaaSLogo size={56} logoUrl={logoUrl} />
           </div>
           <h2 className="text-xl font-bold font-sans tracking-tight text-neutral-100">Depósito Fácil</h2>
           <p className="text-xs text-neutral-400">Plataforma de Gestão Completa para Depósitos de Bebidas & Adegas</p>

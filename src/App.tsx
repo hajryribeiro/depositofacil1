@@ -79,6 +79,15 @@ export default function App() {
   const [currentUnit, setCurrentUnit] = useState<Unit | null>(null);
   const [activeTab, setActiveTab] = useState<string>("dashboard");
 
+  const [saasLogoUrl, setSaasLogoUrl] = useState<string>(() => {
+    return localStorage.getItem("saas_logo_url") || "";
+  });
+
+  const handleUpdateSaaSLogo = (url: string) => {
+    localStorage.setItem("saas_logo_url", url);
+    setSaasLogoUrl(url);
+  };
+
   // Reactive DB States
   const [companies, setCompanies] = useState<Company[]>([]);
   const [units, setUnits] = useState<Unit[]>([]);
@@ -334,6 +343,7 @@ export default function App() {
         onLogin={handleLogin}
         onRegisterCompany={handleRegisterCompany}
         allUsers={users}
+        logoUrl={saasLogoUrl}
       />
     );
   }
@@ -378,6 +388,7 @@ export default function App() {
         setActiveCompanyId={setActiveCompanyId}
         onLogout={handleLogout}
         syncStatus={syncStatus}
+        saasLogoUrl={saasLogoUrl}
       />
 
       {/* Main interactive content frame */}
@@ -498,6 +509,8 @@ export default function App() {
             users={users}
             onToggleCompanyActive={handleToggleCompanyActive}
             onUpdateCompanyPlan={handleUpdateCompanyPlan}
+            saasLogoUrl={saasLogoUrl}
+            onUpdateSaaSLogo={handleUpdateSaaSLogo}
           />
         )}
       </div>
