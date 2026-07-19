@@ -2017,6 +2017,8 @@ export const getFiados = db.getFiados;
 export const getBills = db.getBills;
 export const getOrders = db.getCustomerOrders;
 export const getAuditLogs = db.getAuditLogs;
+export const getSuppliers = db.getSuppliers;
+export const getVasilhames = db.getVasilhames;
 export const addSale = db.addSale;
 
 export const openCashierSession = (

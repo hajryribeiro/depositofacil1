@@ -159,7 +159,7 @@ export default function Finance({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h2 className="text-xl font-bold text-neutral-100 flex items-center gap-2">
-            <DollarSign className="w-5 h-5 text-emerald-400" />
+            <DollarSign className="w-5 h-5 text-red-400" />
             Financeiro & Gestão de Contas
           </h2>
           <p className="text-xs text-neutral-400 mt-1">
@@ -170,7 +170,7 @@ export default function Finance({
         {/* New bill launcher trigger */}
         <button
           onClick={() => setShowBillForm(true)}
-          className="flex items-center gap-1.5 bg-emerald-500 hover:bg-emerald-600 text-neutral-950 px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-[0_0_15px_rgba(16,185,129,0.15)] active:scale-95"
+          className="flex items-center gap-1.5 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-[0_0_15px_rgba(239,68,68,0.15)] active:scale-95"
         >
           <Plus className="w-4 h-4" />
           Lançar Conta / Duplicata
@@ -183,7 +183,7 @@ export default function Finance({
           onClick={() => setActiveTab("dre")}
           className={`px-4 py-2.5 text-xs font-semibold border-b-2 transition-all ${
             activeTab === "dre" 
-              ? "border-emerald-400 text-emerald-400" 
+              ? "border-red-500 text-red-500" 
               : "border-transparent text-neutral-400 hover:text-neutral-200"
           }`}
         >
@@ -194,7 +194,7 @@ export default function Finance({
           onClick={() => setActiveTab("payable")}
           className={`px-4 py-2.5 text-xs font-semibold border-b-2 transition-all ${
             activeTab === "payable" 
-              ? "border-emerald-400 text-emerald-400" 
+              ? "border-red-500 text-red-500" 
               : "border-transparent text-neutral-400 hover:text-neutral-200"
           }`}
         >
@@ -205,7 +205,7 @@ export default function Finance({
           onClick={() => setActiveTab("receivable")}
           className={`px-4 py-2.5 text-xs font-semibold border-b-2 transition-all ${
             activeTab === "receivable" 
-              ? "border-emerald-400 text-emerald-400" 
+              ? "border-red-500 text-red-500" 
               : "border-transparent text-neutral-400 hover:text-neutral-200"
           }`}
         >
@@ -220,7 +220,7 @@ export default function Finance({
           {/* Main Visual Statement Column */}
           <div className="lg:col-span-8 bg-neutral-900 border border-neutral-800 rounded-2xl p-6">
             <h3 className="text-sm font-bold text-neutral-200 flex items-center gap-2 mb-2">
-              <Calculator className="w-4 h-4 text-emerald-400" />
+              <Calculator className="w-4 h-4 text-red-400" />
               Demonstrativo de Fluxo & DRE Operacional
             </h3>
             <p className="text-xs text-neutral-400">Análise sintética calculada sobre vendas líquidas, CMV e despesas do período ativo</p>
@@ -241,7 +241,7 @@ export default function Finance({
               </div>
 
               {/* 3. Gross Margin */}
-              <div className="flex justify-between items-center py-2.5 border-b border-neutral-800 bg-neutral-950/40 px-3 rounded-lg text-emerald-400 font-bold">
+              <div className="flex justify-between items-center py-2.5 border-b border-neutral-800 bg-neutral-950/40 px-3 rounded-lg text-red-400 font-bold">
                 <span className="font-sans font-bold">(=) LUCRO BRUTO OPERACIONAL</span>
                 <span>R$ {dreStats.grossProfit.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</span>
               </div>
@@ -253,7 +253,7 @@ export default function Finance({
               </div>
 
               {/* 5. EBITDA Operational profit */}
-              <div className="flex justify-between items-center py-3 border-b border-neutral-800 bg-neutral-950 px-3 rounded-lg text-emerald-400 font-extrabold text-sm">
+              <div className="flex justify-between items-center py-3 border-b border-neutral-800 bg-neutral-950 px-3 rounded-lg text-red-400 font-extrabold text-sm">
                 <span className="font-sans">(=) RESULTADO LÍQUIDO (EBITDA)</span>
                 <span>R$ {dreStats.ebitda.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</span>
               </div>
@@ -267,7 +267,7 @@ export default function Finance({
                   {dreStats.grossMargin.toFixed(1)}%
                 </p>
                 <div className="w-full h-1.5 bg-neutral-800 rounded-full overflow-hidden mt-2">
-                  <div style={{ width: `${Math.min(100, dreStats.grossMargin)}%` }} className="h-full bg-emerald-400" />
+                  <div style={{ width: `${Math.min(100, dreStats.grossMargin)}%` }} className="h-full bg-red-400" />
                 </div>
               </div>
 
@@ -361,7 +361,7 @@ export default function Finance({
                         <td className="py-3.5">
                           <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase font-mono ${
                             bill.status === BillStatus.PAGO 
-                              ? "bg-emerald-500/10 text-emerald-400" 
+                              ? "bg-red-500/10 text-red-400" 
                               : isOverdue 
                                 ? "bg-red-500/10 text-red-400" 
                                 : "bg-neutral-800 text-neutral-400"
@@ -377,7 +377,7 @@ export default function Finance({
                                 onUpdateBill(updated);
                                 alert("Conta marcada como PAGA com sucesso!");
                               }}
-                              className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2.5 py-1 rounded text-[10px] font-bold hover:bg-emerald-500/20 transition-colors"
+                              className="bg-red-500/10 border border-red-500/20 text-red-400 px-2.5 py-1 rounded text-[10px] font-bold hover:bg-red-500/20 transition-colors"
                             >
                               Dar Baixa / Pagar
                             </button>
@@ -439,7 +439,7 @@ export default function Finance({
                         <td className="py-3.5">
                           <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase font-mono ${
                             bill.status === BillStatus.PAGO 
-                              ? "bg-emerald-500/10 text-emerald-400" 
+                              ? "bg-red-500/10 text-red-400" 
                               : isOverdue 
                                 ? "bg-red-500/10 text-red-400" 
                                 : "bg-neutral-800 text-neutral-400"
@@ -455,7 +455,7 @@ export default function Finance({
                                 onUpdateBill(updated);
                                 alert("Recebimento liquidado com sucesso!");
                               }}
-                              className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2.5 py-1 rounded text-[10px] font-bold hover:bg-emerald-500/20 transition-colors"
+                              className="bg-red-500/10 border border-red-500/20 text-red-400 px-2.5 py-1 rounded text-[10px] font-bold hover:bg-red-500/20 transition-colors"
                             >
                               Liquidar Título
                             </button>
@@ -511,7 +511,7 @@ export default function Finance({
                     onClick={() => setType(BillType.RECEBER)}
                     className={`py-2 rounded-lg font-bold border transition-all ${
                       type === BillType.RECEBER 
-                        ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-400" 
+                        ? "bg-rose-500/10 border-rose-500/20 text-rose-400" 
                         : "bg-neutral-950 border-neutral-800 text-neutral-400"
                     }`}
                   >
@@ -601,7 +601,7 @@ export default function Finance({
               </button>
               <button 
                 type="submit"
-                className="bg-emerald-500 hover:bg-emerald-600 text-neutral-950 font-bold px-5 py-2.5 rounded-xl text-xs"
+                className="bg-red-500 hover:bg-red-600 text-white font-bold px-5 py-2.5 rounded-xl text-xs"
               >
                 Lançar Título
               </button>

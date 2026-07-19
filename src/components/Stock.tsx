@@ -165,7 +165,7 @@ export default function Stock({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h2 className="text-xl font-bold text-neutral-100 flex items-center gap-2">
-            <Layers className="w-5 h-5 text-emerald-400" />
+            <Layers className="w-5 h-5 text-red-400" />
             Controle de Estoque & Movimentações
           </h2>
           <p className="text-xs text-neutral-400 mt-1">
@@ -187,13 +187,13 @@ export default function Stock({
             }}
             className="flex items-center gap-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 px-3.5 py-2 rounded-xl text-xs font-semibold hover:bg-neutral-800 transition-all"
           >
-            <CheckSquare className="w-4 h-4 text-emerald-400" />
+            <CheckSquare className="w-4 h-4 text-red-400" />
             Auditoria / Inventário Físico
           </button>
 
           <button
             onClick={() => setShowAdjustmentForm(true)}
-            className="flex items-center gap-1.5 bg-emerald-500 hover:bg-emerald-600 text-neutral-950 px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-[0_0_15px_rgba(16,185,129,0.15)]"
+            className="flex items-center gap-1.5 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-[0_0_15px_rgba(239,68,68,0.15)]"
           >
             <Plus className="w-4 h-4" />
             Novo Ajuste de Estoque
@@ -203,11 +203,11 @@ export default function Stock({
 
       {/* Audit/Physical inventory Count panel */}
       {showAuditPanel && (
-        <div className="bg-neutral-900 border-2 border-emerald-500/20 p-5 rounded-2xl space-y-4 shadow-[0_0_20px_rgba(16,185,129,0.05)]">
+        <div className="bg-neutral-900 border-2 border-red-500/20 p-5 rounded-2xl space-y-4 shadow-[0_0_20px_rgba(239,68,68,0.05)]">
           <div className="flex justify-between items-center border-b border-neutral-800 pb-3">
             <div>
               <h3 className="text-sm font-bold text-neutral-100 flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-emerald-400" />
+                <Sparkles className="w-4 h-4 text-red-400" />
                 Painel de Inventário Físico (Auditoria de Depósito)
               </h3>
               <p className="text-xs text-neutral-400 mt-1">
@@ -242,7 +242,7 @@ export default function Stock({
                     {/* Variance visualization */}
                     {diff !== 0 && (
                       <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase ${
-                        diff > 0 ? "bg-emerald-500/10 text-emerald-400" : "bg-red-500/10 text-red-400"
+                        diff > 0 ? "bg-red-500/10 text-red-400" : "bg-red-500/10 text-red-400"
                       }`}>
                         Diferença: {diff > 0 ? "+" : ""}{diff}
                       </span>
@@ -279,7 +279,7 @@ export default function Stock({
           <div className="flex justify-end pt-2 border-t border-neutral-800/60">
             <button
               onClick={handleSaveAudit}
-              className="bg-emerald-500 hover:bg-emerald-600 text-neutral-950 font-bold px-4 py-2 rounded-xl text-xs"
+              className="bg-red-500 hover:bg-red-600 text-white font-bold px-4 py-2 rounded-xl text-xs"
             >
               Confirmar Contagem e Ajustar Estoque
             </button>
@@ -337,7 +337,7 @@ export default function Stock({
                       {/* Indicator arrow */}
                       <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border ${
                         isPositive 
-                          ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-400" 
+                          ? "bg-red-500/10 border-red-500/20 text-red-400" 
                           : "bg-red-500/10 border-red-500/20 text-red-400"
                       }`}>
                         {isPositive ? <ArrowUpRight className="w-4 h-4" /> : <ArrowDownLeft className="w-4 h-4" />}
@@ -352,7 +352,7 @@ export default function Stock({
                     </div>
 
                     <div className="text-right shrink-0">
-                      <span className={`font-mono font-bold text-sm ${isPositive ? "text-emerald-400" : "text-red-400"}`}>
+                      <span className={`font-mono font-bold text-sm ${isPositive ? "text-red-400" : "text-red-400"}`}>
                         {isPositive ? "+" : "-"}{m.quantity}
                       </span>
                       <p className="text-[9px] text-neutral-500 font-mono mt-0.5">
@@ -471,7 +471,7 @@ export default function Stock({
 
               <button
                 type="submit"
-                className="w-full bg-neutral-800 hover:bg-neutral-750 text-emerald-400 border border-emerald-500/20 py-2.5 rounded-xl text-xs font-bold transition-all mt-2"
+                className="w-full bg-neutral-800 hover:bg-neutral-750 text-red-400 border border-red-500/20 py-2.5 rounded-xl text-xs font-bold transition-all mt-2"
               >
                 Gravar Lançamento
               </button>
@@ -479,8 +479,8 @@ export default function Stock({
           </div>
 
           {/* Bottom tips */}
-          <div className="bg-emerald-500/5 p-3 rounded-xl border border-emerald-500/10 text-[10px] text-neutral-400 flex items-start gap-2">
-            <AlertTriangle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+          <div className="bg-red-500/5 p-3 rounded-xl border border-red-500/10 text-[10px] text-neutral-400 flex items-start gap-2">
+            <AlertTriangle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
             <span>
               Qualquer alteração manual nesta tela gera um registro de auditoria permanente no sistema, vinculando seu usuário e hora do ajuste.
             </span>

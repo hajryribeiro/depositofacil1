@@ -80,7 +80,7 @@ export default function Reports({
       <div className="flex justify-between items-center border-b border-neutral-800 pb-4">
         <div>
           <h2 className="text-xl font-bold text-neutral-100 flex items-center gap-2">
-            <FileText className="w-5 h-5 text-emerald-400" />
+            <FileText className="w-5 h-5 text-red-400" />
             Relatórios & Logs de Auditoria
           </h2>
           <p className="text-xs text-neutral-400 mt-1">
@@ -93,7 +93,7 @@ export default function Reports({
           <button
             onClick={() => setActiveTab("sales")}
             className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
-              activeTab === "sales" ? "bg-emerald-500/10 text-emerald-400" : "text-neutral-400"
+              activeTab === "sales" ? "bg-red-500/10 text-red-400" : "text-neutral-400"
             }`}
           >
             Métricas de Desempenho
@@ -101,7 +101,7 @@ export default function Reports({
           <button
             onClick={() => setActiveTab("audit")}
             className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
-              activeTab === "audit" ? "bg-emerald-500/10 text-emerald-400" : "text-neutral-400"
+              activeTab === "audit" ? "bg-red-500/10 text-red-400" : "text-neutral-400"
             }`}
           >
             Trilha de Auditoria (Logs)
@@ -116,7 +116,7 @@ export default function Reports({
           {/* Best sellers ranking list */}
           <div className="lg:col-span-7 bg-neutral-900 border border-neutral-800 rounded-2xl p-6">
             <h3 className="text-sm font-bold text-neutral-200 flex items-center gap-2 mb-4">
-              <Award className="w-4 h-4 text-emerald-400" />
+              <Award className="w-4 h-4 text-red-400" />
               Ranking de 10 Bebidas Mais Vendidas
             </h3>
 
@@ -128,7 +128,7 @@ export default function Reports({
                   return (
                     <div key={idx} className="flex items-center justify-between text-xs font-mono border-b border-neutral-850 pb-2">
                       <div className="flex items-center gap-3">
-                        <span className="w-5 h-5 rounded bg-neutral-950 border border-neutral-800 flex items-center justify-center font-bold text-[10px] text-emerald-400">
+                        <span className="w-5 h-5 rounded bg-neutral-950 border border-neutral-800 flex items-center justify-center font-bold text-[10px] text-red-400">
                           {idx + 1}
                         </span>
                         <span className="font-sans font-semibold text-neutral-200 truncate max-w-[200px]">{item.name}</span>
@@ -149,7 +149,7 @@ export default function Reports({
           <div className="lg:col-span-5 flex flex-col gap-6">
             <div className="bg-neutral-900 border border-neutral-800 p-5 rounded-2xl">
               <h3 className="text-sm font-bold text-neutral-200 mb-4 flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-emerald-400" />
+                <TrendingUp className="w-4 h-4 text-red-400" />
                 Resumo Analítico Geral
               </h3>
 
@@ -161,7 +161,7 @@ export default function Reports({
 
                 <div className="bg-neutral-950 p-3 rounded-lg border border-neutral-855 flex justify-between">
                   <span className="text-neutral-500 font-sans">Faturamento</span>
-                  <span className="font-bold text-emerald-400">R$ {companySales.reduce((sum, s) => sum + s.total, 0).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</span>
+                  <span className="font-bold text-red-400">R$ {companySales.reduce((sum, s) => sum + s.total, 0).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</span>
                 </div>
 
                 <div className="bg-neutral-950 p-3 rounded-lg border border-neutral-855 flex justify-between">
@@ -183,7 +183,7 @@ export default function Reports({
           
           {/* Warning notice about anti-fraud auditing */}
           <div className="bg-neutral-900/60 border border-neutral-800 p-4 rounded-xl flex items-center gap-2 text-xs text-neutral-400 leading-normal">
-            <AlertTriangle className="w-5 h-5 text-emerald-400 shrink-0" />
+            <AlertTriangle className="w-5 h-5 text-red-400 shrink-0" />
             <span>
               <strong>Rastreabilidade de Segurança (Lei Geral de Proteção e Fraudes):</strong> Todas as ações críticas (Estornos de venda, saídas manuais do estoque, sangria de caixa e aberturas) registram carimbos contendo ID do usuário, carimbo de data e hora e endereço IP/dispositivo fictício para impedir fraudes financeiras na loja.
             </span>

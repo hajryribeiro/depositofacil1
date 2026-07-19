@@ -214,7 +214,7 @@ export default function Dashboard({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-neutral-900/60 p-4 rounded-xl border border-neutral-800">
         <div>
           <h2 className="text-xl font-bold text-neutral-100 flex items-center gap-2">
-            <Activity className="w-5 h-5 text-emerald-400" />
+            <Activity className="w-5 h-5 text-red-500" />
             Visão Geral Operacional
           </h2>
           <p className="text-xs text-neutral-400 mt-1">
@@ -229,7 +229,7 @@ export default function Dashboard({
             <button
               onClick={() => setPeriod("today")}
               className={`text-xs px-2.5 py-1 rounded-md font-medium transition-all ${
-                period === "today" ? "bg-emerald-500/10 text-emerald-400" : "text-neutral-400 hover:text-neutral-200"
+                period === "today" ? "bg-red-500/10 text-red-400" : "text-neutral-400 hover:text-neutral-200"
               }`}
             >
               Hoje
@@ -237,7 +237,7 @@ export default function Dashboard({
             <button
               onClick={() => setPeriod("7d")}
               className={`text-xs px-2.5 py-1 rounded-md font-medium transition-all ${
-                period === "7d" ? "bg-emerald-500/10 text-emerald-400" : "text-neutral-400 hover:text-neutral-200"
+                period === "7d" ? "bg-red-500/10 text-red-400" : "text-neutral-400 hover:text-neutral-200"
               }`}
             >
               7D
@@ -245,7 +245,7 @@ export default function Dashboard({
             <button
               onClick={() => setPeriod("30d")}
               className={`text-xs px-2.5 py-1 rounded-md font-medium transition-all ${
-                period === "30d" ? "bg-emerald-500/10 text-emerald-400" : "text-neutral-400 hover:text-neutral-200"
+                period === "30d" ? "bg-red-500/10 text-red-400" : "text-neutral-400 hover:text-neutral-200"
               }`}
             >
               30D
@@ -253,7 +253,7 @@ export default function Dashboard({
             <button
               onClick={() => setPeriod("all")}
               className={`text-xs px-2.5 py-1 rounded-md font-medium transition-all ${
-                period === "all" ? "bg-emerald-500/10 text-emerald-400" : "text-neutral-400 hover:text-neutral-200"
+                period === "all" ? "bg-red-500/10 text-red-400" : "text-neutral-400 hover:text-neutral-200"
               }`}
             >
               Geral
@@ -297,7 +297,7 @@ export default function Dashboard({
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {/* Revenue */}
         <div className="bg-neutral-900 border border-neutral-800 p-5 rounded-2xl flex flex-col justify-between h-32 relative overflow-hidden shadow-md">
-          <div className="absolute right-3 top-3 bg-emerald-500/5 p-2 rounded-lg border border-emerald-500/10 text-emerald-400">
+          <div className="absolute right-3 top-3 bg-red-500/5 p-2 rounded-lg border border-red-500/10 text-red-400">
             <DollarSign className="w-4 h-4" />
           </div>
           <div>
@@ -308,14 +308,14 @@ export default function Dashboard({
               R$ {metrics.totalRevenue.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
           </div>
-          <span className="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
+          <span className="text-[10px] font-mono text-red-400 flex items-center gap-1">
             <TrendingUp className="w-3 h-3" /> Receita consolidada
           </span>
         </div>
 
         {/* Profit */}
         <div className="bg-neutral-900 border border-neutral-800 p-5 rounded-2xl flex flex-col justify-between h-32 relative overflow-hidden shadow-md">
-          <div className="absolute right-3 top-3 bg-teal-500/5 p-2 rounded-lg border border-teal-500/10 text-teal-400">
+          <div className="absolute right-3 top-3 bg-rose-500/5 p-2 rounded-lg border border-rose-500/10 text-rose-400">
             <Percent className="w-4 h-4" />
           </div>
           <div>
@@ -326,14 +326,14 @@ export default function Dashboard({
               R$ {metrics.estimatedProfit.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
           </div>
-          <span className="text-[10px] font-mono text-teal-400">
+          <span className="text-[10px] font-mono text-rose-400">
             Margem: {metrics.totalRevenue > 0 ? ((metrics.estimatedProfit / metrics.totalRevenue) * 100).toFixed(1) : 0}%
           </span>
         </div>
 
         {/* Ticket Medio */}
         <div className="bg-neutral-900 border border-neutral-800 p-5 rounded-2xl flex flex-col justify-between h-32 relative overflow-hidden shadow-md">
-          <div className="absolute right-3 top-3 bg-emerald-500/5 p-2 rounded-lg border border-emerald-500/10 text-emerald-400">
+          <div className="absolute right-3 top-3 bg-rose-500/5 p-2 rounded-lg border border-rose-500/10 text-rose-400">
             <ShoppingCart className="w-4 h-4" />
           </div>
           <div>
@@ -372,7 +372,7 @@ export default function Dashboard({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Caixas Abertos */}
         <div className="bg-neutral-900/40 border border-neutral-800 p-4 rounded-xl flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center">
             <CheckCircle className="w-5 h-5" />
           </div>
           <div>
@@ -422,7 +422,7 @@ export default function Dashboard({
                         </div>
                         <div 
                           style={{ height: heightPct }}
-                          className="w-full bg-emerald-500/20 border-t-2 border-emerald-400 hover:bg-emerald-500/30 transition-all rounded-t-md relative flex justify-center"
+                          className="w-full bg-red-500/20 border-t-2 border-red-500 hover:bg-red-500/30 transition-all rounded-t-md relative flex justify-center"
                         />
                         <span className="text-[10px] font-mono text-neutral-400 mt-2 block">
                           {p.day}
@@ -456,12 +456,12 @@ export default function Dashboard({
                     <div key={i}>
                       <div className="flex justify-between items-center text-xs font-mono mb-1">
                         <span className="text-neutral-300 font-bold uppercase">{p.method}</span>
-                        <span className="text-emerald-400">{pct.toFixed(1)}%</span>
+                        <span className="text-red-400">{pct.toFixed(1)}%</span>
                       </div>
                       <div className="w-full h-1.5 bg-neutral-800 rounded-full overflow-hidden">
                         <div 
                           style={{ width: `${pct}%` }} 
-                          className="h-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]"
+                          className="h-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]"
                         />
                       </div>
                     </div>
@@ -489,12 +489,12 @@ export default function Dashboard({
                     <div key={i}>
                       <div className="flex justify-between items-center text-xs font-mono mb-1">
                         <span className="text-neutral-300 truncate">{c.category}</span>
-                        <span className="text-emerald-400">R$ {c.total.toFixed(0)} ({pct.toFixed(0)}%)</span>
+                        <span className="text-red-400">R$ {c.total.toFixed(0)} ({pct.toFixed(0)}%)</span>
                       </div>
                       <div className="w-full h-1.5 bg-neutral-800 rounded-full overflow-hidden">
                         <div 
                           style={{ width: `${pct}%` }} 
-                          className="h-full bg-teal-400 shadow-[0_0_8px_rgba(45,212,191,0.5)]"
+                          className="h-full bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.5)]"
                         />
                       </div>
                     </div>

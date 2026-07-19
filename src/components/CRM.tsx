@@ -205,11 +205,11 @@ export default function CRM({
       {/* CRM Heading */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl font-bold text-neutral-100 flex items-center gap-2">
-            <Users className="w-5 h-5 text-emerald-400" />
+          <h2 className="text-xl font-bold text-slate-100 flex items-center gap-2">
+            <Users className="w-5 h-5 text-red-400" />
             CRM & Controle de Vasilhames
           </h2>
-          <p className="text-xs text-neutral-400 mt-1">
+          <p className="text-xs text-slate-400 mt-1">
             Gestão de clientes fiados, fornecedores de bebidas e controle físico de vasilhames e engradados retornáveis
           </p>
         </div>
@@ -219,7 +219,7 @@ export default function CRM({
           {activeSubTab === "clients" && (
             <button
               onClick={() => setShowClientForm(true)}
-              className="flex items-center gap-1.5 bg-emerald-500 hover:bg-emerald-600 text-neutral-950 px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-[0_0_15px_rgba(16,185,129,0.15)]"
+              className="flex items-center gap-1.5 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-[0_0_15px_rgba(239,68,68,0.15)]"
             >
               <UserPlus className="w-4 h-4" />
               Novo Cliente
@@ -229,7 +229,7 @@ export default function CRM({
           {activeSubTab === "suppliers" && (
             <button
               onClick={() => setShowSupplierForm(true)}
-              className="flex items-center gap-1.5 bg-emerald-500 hover:bg-emerald-600 text-neutral-950 px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-[0_0_15px_rgba(16,185,129,0.15)]"
+              className="flex items-center gap-1.5 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-[0_0_15px_rgba(239,68,68,0.15)]"
             >
               <Plus className="w-4 h-4" />
               Novo Fornecedor
@@ -245,7 +245,7 @@ export default function CRM({
                 }
                 setShowVasilhameForm(true);
               }}
-              className="flex items-center gap-1.5 bg-emerald-500 hover:bg-emerald-600 text-neutral-950 px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-[0_0_15px_rgba(16,185,129,0.15)]"
+              className="flex items-center gap-1.5 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-[0_0_15px_rgba(239,68,68,0.15)]"
             >
               <Wine className="w-4 h-4" />
               Lançar Empréstimo / Devolução
@@ -255,13 +255,13 @@ export default function CRM({
       </div>
 
       {/* SUB-TABS NAVIGATION BAR */}
-      <div className="flex border-b border-neutral-800 gap-1">
+      <div className="flex border-b border-slate-800 gap-1">
         <button
           onClick={() => { setActiveSubTab("clients"); setSearch(""); }}
           className={`px-4 py-2.5 text-xs font-semibold border-b-2 transition-all ${
             activeSubTab === "clients" 
-              ? "border-emerald-400 text-emerald-400" 
-              : "border-transparent text-neutral-400 hover:text-neutral-200"
+              ? "border-red-500 text-red-500" 
+              : "border-transparent text-slate-400 hover:text-slate-200"
           }`}
         >
           Clientes & Fiados ({companyClients.length})
@@ -271,8 +271,8 @@ export default function CRM({
           onClick={() => { setActiveSubTab("vasilhames"); setSearch(""); }}
           className={`px-4 py-2.5 text-xs font-semibold border-b-2 transition-all ${
             activeSubTab === "vasilhames" 
-              ? "border-emerald-400 text-emerald-400" 
-              : "border-transparent text-neutral-400 hover:text-neutral-200"
+              ? "border-red-500 text-red-500" 
+              : "border-transparent text-slate-400 hover:text-slate-200"
           }`}
         >
           Engradados & Vasilhames ({companyVasilhames.length})
@@ -282,8 +282,8 @@ export default function CRM({
           onClick={() => { setActiveSubTab("suppliers"); setSearch(""); }}
           className={`px-4 py-2.5 text-xs font-semibold border-b-2 transition-all ${
             activeSubTab === "suppliers" 
-              ? "border-emerald-400 text-emerald-400" 
-              : "border-transparent text-neutral-400 hover:text-neutral-200"
+              ? "border-red-500 text-red-500" 
+              : "border-transparent text-slate-400 hover:text-slate-200"
           }`}
         >
           Fornecedores ({companySuppliers.length})
@@ -292,29 +292,29 @@ export default function CRM({
 
       {/* FILTER SEARCH INPUT */}
       {activeSubTab !== "vasilhames" && (
-        <div className="bg-neutral-900 border border-neutral-800 p-3 rounded-xl">
+        <div className="bg-slate-900 border border-slate-800 p-3 rounded-xl">
           <div className="relative">
-            <Search className="w-4 h-4 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder={activeSubTab === "clients" ? "Buscar por nome do cliente, celular, rua..." : "Buscar fornecedor ou marcas de bebidas..."}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full bg-neutral-950 border border-neutral-800 rounded-lg pl-10 pr-4 py-2 text-xs text-neutral-200 focus:outline-none"
+              className="w-full bg-slate-950 border border-slate-800 rounded-lg pl-10 pr-4 py-2 text-xs text-slate-200 focus:outline-none"
             />
           </div>
         </div>
       )}
 
       {/* CONTENT LIST PANEL */}
-      <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-6">
+      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
         
         {/* SUBTAB 1: CLIENTS WITH CREDIT AND DEBT LEVELS */}
         {activeSubTab === "clients" && (
-          <div className="overflow-x-auto text-xs text-neutral-300">
+          <div className="overflow-x-auto text-xs text-slate-300">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-neutral-800 font-mono text-neutral-500 uppercase text-[10px]">
+                <tr className="border-b border-slate-800 font-mono text-slate-500 uppercase text-[10px]">
                   <th className="py-3">Nome</th>
                   <th className="py-3">Celular</th>
                   <th className="py-3">Endereço de Entrega</th>
@@ -323,10 +323,10 @@ export default function CRM({
                   <th className="py-3 text-right">Ações</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-neutral-850">
+              <tbody className="divide-y divide-slate-850">
                 {filteredClients.length === 0 ? (
                   <tr>
-                    <td colSpan={6} className="py-6 text-center text-neutral-500 italic">Nenhum cliente correspondente encontrado.</td>
+                    <td colSpan={6} className="py-6 text-center text-slate-500 italic">Nenhum cliente correspondente encontrado.</td>
                   </tr>
                 ) : (
                   filteredClients.map((client) => {
@@ -334,35 +334,35 @@ export default function CRM({
                     const debtRatio = (client.currentDebt / client.creditLimit) * 100;
 
                     return (
-                      <tr key={client.id} className="hover:bg-neutral-950/20 transition-colors">
+                      <tr key={client.id} className="hover:bg-slate-950/20 transition-colors">
                         <td className="py-3.5">
                           <div className="flex items-center gap-2">
-                            <div className="w-7 h-7 rounded-full bg-neutral-800 flex items-center justify-center font-bold text-emerald-400">
+                            <div className="w-7 h-7 rounded-full bg-slate-800 flex items-center justify-center font-bold text-red-400">
                               {client.name.charAt(0)}
                             </div>
-                            <span className="font-semibold text-neutral-200">{client.name}</span>
+                            <span className="font-semibold text-slate-200">{client.name}</span>
                           </div>
                         </td>
                         <td className="py-3.5 font-mono">
-                          <a href={`tel:${client.phone}`} className="flex items-center gap-1 hover:underline text-neutral-300">
-                            <Phone className="w-3.5 h-3.5 text-neutral-500" />
+                          <a href={`tel:${client.phone}`} className="flex items-center gap-1 hover:underline text-slate-300">
+                            <Phone className="w-3.5 h-3.5 text-slate-500" />
                             {client.phone}
                           </a>
                         </td>
                         <td className="py-3.5 truncate max-w-[200px]" title={formatAddress(client.address)}>
-                          {formatAddress(client.address) || <span className="text-neutral-500 italic">Não informado</span>}
+                          {formatAddress(client.address) || <span className="text-slate-500 italic">Não informado</span>}
                         </td>
                         <td className="py-3.5 font-mono">
-                          <span className={`font-bold ${client.currentDebt > 0 ? "text-red-400 font-extrabold" : "text-neutral-400"}`}>
+                          <span className={`font-bold ${client.currentDebt > 0 ? "text-red-400 font-extrabold" : "text-slate-400"}`}>
                             R$ {client.currentDebt.toFixed(2)}
                           </span>
                         </td>
                         <td className="py-3.5 font-mono">
                           <span>R$ {client.creditLimit.toFixed(2)}</span>
-                          <div className="w-24 h-1.5 bg-neutral-850 rounded-full overflow-hidden mt-1.5">
+                          <div className="w-24 h-1.5 bg-slate-850 rounded-full overflow-hidden mt-1.5">
                             <div 
                               style={{ width: `${Math.min(100, debtRatio)}%` }} 
-                              className={`h-full ${debtRatio > 80 ? "bg-red-500" : "bg-emerald-400"}`}
+                              className={`h-full ${debtRatio > 80 ? "bg-red-500" : "bg-red-400"}`}
                             />
                           </div>
                         </td>
@@ -381,7 +381,7 @@ export default function CRM({
                                 alert(`Sucesso! Pagamento de R$ ${amt.toFixed(2)} recebido. Nova dívida: R$ ${updated.currentDebt.toFixed(2)}.`);
                               }
                             }}
-                            className="bg-neutral-800 hover:bg-neutral-750 text-neutral-200 px-2.5 py-1 rounded text-[11px] font-semibold"
+                            className="bg-slate-800 hover:bg-slate-750 text-slate-200 px-2.5 py-1 rounded text-[11px] font-semibold"
                           >
                             Abater Dívida
                           </button>
@@ -398,17 +398,17 @@ export default function CRM({
         {/* SUBTAB 2: RETURNABLES LEDGER */}
         {activeSubTab === "vasilhames" && (
           <div className="space-y-4">
-            <div className="bg-emerald-500/5 p-4 rounded-xl border border-emerald-500/10 text-xs text-neutral-400 flex items-start gap-2.5">
-              <RotateCcw className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+            <div className="bg-red-500/5 p-4 rounded-xl border border-red-500/10 text-xs text-slate-400 flex items-start gap-2.5">
+              <RotateCcw className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
               <span>
                 <strong>Controle de Cascos e Engradados Retornáveis:</strong> No depósito de bebidas, o controle de vasilhames vazios garante que fardos e engradados não sejam extraviados. A tabela abaixo rastreia empréstimos e saldos devidos por cada cliente.
               </span>
             </div>
 
-            <div className="overflow-x-auto text-xs text-neutral-300">
+            <div className="overflow-x-auto text-xs text-slate-300">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-neutral-800 font-mono text-neutral-500 uppercase text-[10px]">
+                  <tr className="border-b border-slate-800 font-mono text-slate-500 uppercase text-[10px]">
                     <th className="py-3">Cliente</th>
                     <th className="py-3">Tipo do Vasilhame</th>
                     <th className="py-3">Quantidade Emprestada</th>
@@ -417,22 +417,22 @@ export default function CRM({
                     <th className="py-3 text-right">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-neutral-850">
+                <tbody className="divide-y divide-slate-850">
                   {companyVasilhames.length === 0 ? (
                     <tr>
-                      <td colSpan={6} className="py-6 text-center text-neutral-500 italic">Nenhum vasilhame em aberto na conta deste locatário.</td>
+                      <td colSpan={6} className="py-6 text-center text-slate-500 italic">Nenhum vasilhame em aberto na conta deste locatário.</td>
                     </tr>
                   ) : (
                     companyVasilhames.map((vas, idx) => {
                       const balance = vas.quantityLoaned - vas.quantityReturned;
                       return (
-                        <tr key={idx} className="hover:bg-neutral-950/20 transition-colors">
-                          <td className="py-3.5 font-semibold text-neutral-200">{vas.clientName}</td>
-                          <td className="py-3.5 text-neutral-300">{vas.bottleType}</td>
+                        <tr key={idx} className="hover:bg-slate-950/20 transition-colors">
+                          <td className="py-3.5 font-semibold text-slate-200">{vas.clientName}</td>
+                          <td className="py-3.5 text-slate-300">{vas.bottleType}</td>
                           <td className="py-3.5 font-mono">{vas.quantityLoaned} cascos</td>
                           <td className="py-3.5 font-mono">{vas.quantityReturned} cascos</td>
                           <td className="py-3.5 font-mono">
-                            <span className={`font-bold ${balance > 0 ? "text-yellow-500" : "text-emerald-400"}`}>
+                            <span className={`font-bold ${balance > 0 ? "text-yellow-500" : "text-red-400"}`}>
                               {balance} devedores
                             </span>
                           </td>
@@ -456,12 +456,12 @@ export default function CRM({
                                     alert(`Sucesso! ${q} cascos devolvidos pelo cliente.`);
                                   }
                                 }}
-                                className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2 py-1 rounded text-[11px]"
+                                className="bg-red-500/10 border border-red-500/20 text-red-400 px-2 py-1 rounded text-[11px]"
                               >
                                 Devolver Casco
                               </button>
                             ) : (
-                              <span className="text-emerald-400 text-[10px] uppercase font-bold">100% Devolvido</span>
+                              <span className="text-red-400 text-[10px] uppercase font-bold">100% Devolvido</span>
                             )}
                           </td>
                         </tr>
@@ -476,10 +476,10 @@ export default function CRM({
 
         {/* SUBTAB 3: SUPPLIERS */}
         {activeSubTab === "suppliers" && (
-          <div className="overflow-x-auto text-xs text-neutral-300">
+          <div className="overflow-x-auto text-xs text-slate-300">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-neutral-800 font-mono text-neutral-500 uppercase text-[10px]">
+                <tr className="border-b border-slate-800 font-mono text-slate-500 uppercase text-[10px]">
                   <th className="py-3">Nome do Fornecedor</th>
                   <th className="py-3">Representante / Contato</th>
                   <th className="py-3">Celular de Pedidos</th>
@@ -487,21 +487,21 @@ export default function CRM({
                   <th className="py-3 text-right">Ações</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-neutral-850">
+              <tbody className="divide-y divide-slate-850">
                 {filteredSuppliers.length === 0 ? (
                   <tr>
-                    <td colSpan={5} className="py-6 text-center text-neutral-500 italic">Nenhum fornecedor correspondente.</td>
+                    <td colSpan={5} className="py-6 text-center text-slate-500 italic">Nenhum fornecedor correspondente.</td>
                   </tr>
                 ) : (
                   filteredSuppliers.map((supplier) => (
-                    <tr key={supplier.id} className="hover:bg-neutral-950/20 transition-colors">
-                      <td className="py-3.5 font-bold text-neutral-200">{supplier.name}</td>
-                      <td className="py-3.5 text-neutral-300">{supplier.contactPerson}</td>
+                    <tr key={supplier.id} className="hover:bg-slate-950/20 transition-colors">
+                      <td className="py-3.5 font-bold text-slate-200">{supplier.name}</td>
+                      <td className="py-3.5 text-slate-300">{supplier.contactPerson}</td>
                       <td className="py-3.5 font-mono">{supplier.phone}</td>
                       <td className="py-3.5">
                         <div className="flex flex-wrap gap-1">
                           {supplier.brandsSupplied.map((b, i) => (
-                            <span key={i} className="bg-neutral-950 border border-neutral-800 text-[9px] px-1.5 py-0.5 rounded text-neutral-400 uppercase">
+                            <span key={i} className="bg-slate-950 border border-slate-800 text-[9px] px-1.5 py-0.5 rounded text-slate-400 uppercase">
                               {b}
                             </span>
                           ))}
@@ -513,7 +513,7 @@ export default function CRM({
                             const note = encodeURIComponent(`Olá ${supplier.contactPerson || supplier.name}! Gostaríamos de fazer uma cotação de compra de bebidas para reposição do estoque. Aguardamos retorno!`);
                             window.open(`https://api.whatsapp.com/send?phone=${supplier.phone}&text=${note}`);
                           }}
-                          className="bg-neutral-800 hover:bg-neutral-750 text-neutral-200 px-3 py-1.5 rounded-lg text-[10px] font-bold inline-flex items-center gap-1"
+                          className="bg-slate-800 hover:bg-slate-750 text-slate-200 px-3 py-1.5 rounded-lg text-[10px] font-bold inline-flex items-center gap-1"
                         >
                           <Phone className="w-3 h-3" />
                           Enviar Cotação
@@ -534,17 +534,17 @@ export default function CRM({
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
           <form 
             onSubmit={handleClientSubmit}
-            className="bg-neutral-900 border border-neutral-800 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl"
+            className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl"
           >
-            <div className="p-4 bg-neutral-950 border-b border-neutral-800 flex justify-between items-center">
-              <h3 className="font-bold text-neutral-200 text-sm flex items-center gap-2">
-                <UserPlus className="w-4 h-4 text-emerald-400" />
+            <div className="p-4 bg-slate-950 border-b border-slate-800 flex justify-between items-center">
+              <h3 className="font-bold text-slate-200 text-sm flex items-center gap-2">
+                <UserPlus className="w-4 h-4 text-red-400" />
                 Cadastrar Novo Cliente
               </h3>
               <button 
                 type="button"
                 onClick={() => setShowClientForm(false)}
-                className="text-xs text-neutral-400 hover:text-white"
+                className="text-xs text-slate-400 hover:text-white"
               >
                 Voltar
               </button>
@@ -552,76 +552,76 @@ export default function CRM({
 
             <div className="p-6 space-y-4 text-xs">
               <div className="space-y-1">
-                <label className="text-neutral-400 block font-semibold">Nome Completo *</label>
+                <label className="text-slate-400 block font-semibold">Nome Completo *</label>
                 <input
                   type="text"
                   required
                   value={clientName}
                   onChange={(e) => setClientName(e.target.value)}
                   placeholder="Ex: João da Silva Santos"
-                  className="w-full bg-neutral-950 border border-neutral-800 rounded-lg p-2.5 text-xs text-neutral-200 focus:outline-none"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1">
-                  <label className="text-neutral-400 block font-semibold">Celular de Contato *</label>
+                  <label className="text-slate-400 block font-semibold">Celular de Contato *</label>
                   <input
                     type="tel"
                     required
                     value={clientPhone}
                     onChange={(e) => setClientPhone(e.target.value)}
                     placeholder="Ex: (11) 98765-4321"
-                    className="w-full bg-neutral-950 border border-neutral-800 rounded-lg p-2.5 text-xs text-neutral-200 focus:outline-none"
+                    className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-neutral-400 block font-semibold">E-mail</label>
+                  <label className="text-slate-400 block font-semibold">E-mail</label>
                   <input
                     type="email"
                     value={clientEmail}
                     onChange={(e) => setClientEmail(e.target.value)}
                     placeholder="Email (Opcional)"
-                    className="w-full bg-neutral-950 border border-neutral-800 rounded-lg p-2.5 text-xs text-neutral-200 focus:outline-none"
+                    className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none"
                   />
                 </div>
               </div>
 
               <div className="space-y-1">
-                <label className="text-neutral-400 block font-semibold">Endereço Completo de Entrega</label>
+                <label className="text-slate-400 block font-semibold">Endereço Completo de Entrega</label>
                 <input
                   type="text"
                   value={clientAddress}
                   onChange={(e) => setClientAddress(e.target.value)}
                   placeholder="Rua, Número, Bairro, CEP"
-                  className="w-full bg-neutral-950 border border-neutral-800 rounded-lg p-2.5 text-xs text-neutral-200 focus:outline-none"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none"
                 />
               </div>
 
               <div className="space-y-1">
-                <label className="text-neutral-400 block font-semibold">Limite de Venda Fiada (Crédito Máximo R$)</label>
+                <label className="text-slate-400 block font-semibold">Limite de Venda Fiada (Crédito Máximo R$)</label>
                 <input
                   type="number"
                   min={0}
                   value={creditLimit}
                   onChange={(e) => setCreditLimit(parseInt(e.target.value) || 0)}
-                  className="w-full bg-neutral-950 border border-neutral-800 rounded-lg p-2.5 text-xs text-neutral-200 font-mono focus:outline-none"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-slate-200 font-mono focus:outline-none"
                 />
               </div>
             </div>
 
-            <div className="p-4 bg-neutral-950 border-t border-neutral-800 flex justify-end gap-2">
+            <div className="p-4 bg-slate-950 border-t border-slate-800 flex justify-end gap-2">
               <button 
                 type="button"
                 onClick={() => setShowClientForm(false)}
-                className="bg-neutral-900 text-neutral-400 px-4 py-2 rounded-xl text-xs font-semibold"
+                className="bg-slate-900 text-slate-400 px-4 py-2 rounded-xl text-xs font-semibold"
               >
                 Cancelar
               </button>
               <button 
                 type="submit"
-                className="bg-emerald-500 hover:bg-emerald-600 text-neutral-950 font-bold px-5 py-2.5 rounded-xl text-xs"
+                className="bg-red-500 hover:bg-red-600 text-white font-bold px-5 py-2.5 rounded-xl text-xs"
               >
                 Cadastrar Cliente
               </button>
@@ -635,14 +635,14 @@ export default function CRM({
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
           <form 
             onSubmit={handleSupplierSubmit}
-            className="bg-neutral-900 border border-neutral-800 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl"
+            className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl"
           >
-            <div className="p-4 bg-neutral-950 border-b border-neutral-800 flex justify-between items-center">
-              <h3 className="font-bold text-neutral-200 text-sm">Cadastrar Novo Fornecedor</h3>
+            <div className="p-4 bg-slate-950 border-b border-slate-800 flex justify-between items-center">
+              <h3 className="font-bold text-slate-200 text-sm">Cadastrar Novo Fornecedor</h3>
               <button 
                 type="button"
                 onClick={() => setShowSupplierForm(false)}
-                className="text-xs text-neutral-400 hover:text-white"
+                className="text-xs text-slate-400 hover:text-white"
               >
                 Voltar
               </button>
@@ -650,66 +650,66 @@ export default function CRM({
 
             <div className="p-6 space-y-4 text-xs">
               <div className="space-y-1">
-                <label className="text-neutral-400 block font-semibold">Razão Social / Fornecedor *</label>
+                <label className="text-slate-400 block font-semibold">Razão Social / Fornecedor *</label>
                 <input
                   type="text"
                   required
                   value={supplierName}
                   onChange={(e) => setSupplierName(e.target.value)}
                   placeholder="Ex: Distribuidora Ambev Regional Norte"
-                  className="w-full bg-neutral-950 border border-neutral-800 rounded-lg p-2.5 text-xs text-neutral-200 focus:outline-none"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1">
-                  <label className="text-neutral-400 block font-semibold">Celular / WhatsApp Comercial *</label>
+                  <label className="text-slate-400 block font-semibold">Celular / WhatsApp Comercial *</label>
                   <input
                     type="tel"
                     required
                     value={supplierPhone}
                     onChange={(e) => setSupplierPhone(e.target.value)}
                     placeholder="Ex: (11) 99999-9999"
-                    className="w-full bg-neutral-950 border border-neutral-800 rounded-lg p-2.5 text-xs text-neutral-200 focus:outline-none"
+                    className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-neutral-400 block font-semibold">Contato Representante</label>
+                  <label className="text-slate-400 block font-semibold">Contato Representante</label>
                   <input
                     type="text"
                     value={supplierContactPerson}
                     onChange={(e) => setSupplierContactPerson(e.target.value)}
                     placeholder="Nome do vendedor"
-                    className="w-full bg-neutral-950 border border-neutral-800 rounded-lg p-2.5 text-xs text-neutral-200 focus:outline-none"
+                    className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none"
                   />
                 </div>
               </div>
 
               <div className="space-y-1">
-                <label className="text-neutral-400 block font-semibold">Marcas Fornecidas (Separadas por vírgulas) *</label>
+                <label className="text-slate-400 block font-semibold">Marcas Fornecidas (Separadas por vírgulas) *</label>
                 <input
                   type="text"
                   required
                   value={supplierBrandList}
                   onChange={(e) => setSupplierBrandList(e.target.value)}
                   placeholder="Ex: Skol, Brahma, Budweiser, Stella Artois"
-                  className="w-full bg-neutral-950 border border-neutral-800 rounded-lg p-2.5 text-xs text-neutral-200 focus:outline-none"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none"
                 />
               </div>
             </div>
 
-            <div className="p-4 bg-neutral-950 border-t border-neutral-800 flex justify-end gap-2">
+            <div className="p-4 bg-slate-950 border-t border-slate-800 flex justify-end gap-2">
               <button 
                 type="button"
                 onClick={() => setShowSupplierForm(false)}
-                className="bg-neutral-900 text-neutral-400 px-4 py-2 rounded-xl text-xs"
+                className="bg-slate-900 text-slate-400 px-4 py-2 rounded-xl text-xs"
               >
                 Cancelar
               </button>
               <button 
                 type="submit"
-                className="bg-emerald-500 hover:bg-emerald-600 text-neutral-950 font-bold px-5 py-2.5 rounded-xl text-xs"
+                className="bg-red-500 hover:bg-red-600 text-white font-bold px-5 py-2.5 rounded-xl text-xs"
               >
                 Cadastrar Fornecedor
               </button>
@@ -723,17 +723,17 @@ export default function CRM({
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
           <form 
             onSubmit={handleVasilhameSubmit}
-            className="bg-neutral-900 border border-neutral-800 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl"
+            className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl"
           >
-            <div className="p-4 bg-neutral-950 border-b border-neutral-800 flex justify-between items-center">
-              <h3 className="font-bold text-neutral-200 text-sm flex items-center gap-2">
-                <Wine className="w-4 h-4 text-emerald-400" />
+            <div className="p-4 bg-slate-950 border-b border-slate-800 flex justify-between items-center">
+              <h3 className="font-bold text-slate-200 text-sm flex items-center gap-2">
+                <Wine className="w-4 h-4 text-red-400" />
                 Lançar Movimento de Vasilhames
               </h3>
               <button 
                 type="button"
                 onClick={() => setShowVasilhameForm(false)}
-                className="text-xs text-neutral-400 hover:text-white"
+                className="text-xs text-slate-400 hover:text-white"
               >
                 Voltar
               </button>
@@ -742,12 +742,12 @@ export default function CRM({
             <div className="p-6 space-y-4 text-xs">
               {/* Select Client */}
               <div className="space-y-1">
-                <label className="text-neutral-400 block font-semibold">Cliente Destinatário *</label>
+                <label className="text-slate-400 block font-semibold">Cliente Destinatário *</label>
                 <select
                   required
                   value={vasClient}
                   onChange={(e) => setVasClient(e.target.value)}
-                  className="w-full bg-neutral-950 border border-neutral-800 rounded-lg p-2.5 text-xs text-neutral-300 focus:outline-none"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-slate-300 focus:outline-none"
                 >
                   <option value="">Selecione o cliente...</option>
                   {companyClients.map(c => (
@@ -758,11 +758,11 @@ export default function CRM({
 
               {/* Bottle Type */}
               <div className="space-y-1">
-                <label className="text-neutral-400 block font-semibold">Tipo do Vasilhame / Casco</label>
+                <label className="text-slate-400 block font-semibold">Tipo do Vasilhame / Casco</label>
                 <select
                   value={vasBottleType}
                   onChange={(e) => setVasBottleType(e.target.value)}
-                  className="w-full bg-neutral-950 border border-neutral-800 rounded-lg p-2.5 text-xs text-neutral-300 focus:outline-none"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-slate-300 focus:outline-none"
                 >
                   <option value="Garrafa Litrão 1L (Heineken/Antarctica)">Garrafa Litrão 1L (Heineken/Antarctica)</option>
                   <option value="Garrafa 600ml (Skol/Brahma)">Garrafa 600ml (Skol/Brahma)</option>
@@ -773,40 +773,40 @@ export default function CRM({
 
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1">
-                  <label className="text-neutral-400 block font-semibold">Quantidade Emprestada</label>
+                  <label className="text-slate-400 block font-semibold">Quantidade Emprestada</label>
                   <input
                     type="number"
                     min={0}
                     value={vasBottlesLoaned}
                     onChange={(e) => setVasBottlesLoaned(parseInt(e.target.value) || 0)}
-                    className="w-full bg-neutral-950 border border-neutral-800 rounded-lg p-2.5 text-xs font-mono text-neutral-200 focus:outline-none"
+                    className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs font-mono text-slate-200 focus:outline-none"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-neutral-400 block font-semibold">Quantidade Devolvida no ato</label>
+                  <label className="text-slate-400 block font-semibold">Quantidade Devolvida no ato</label>
                   <input
                     type="number"
                     min={0}
                     value={vasBottlesReturned}
                     onChange={(e) => setVasBottlesReturned(parseInt(e.target.value) || 0)}
-                    className="w-full bg-neutral-950 border border-neutral-800 rounded-lg p-2.5 text-xs font-mono text-neutral-200 focus:outline-none"
+                    className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs font-mono text-slate-200 focus:outline-none"
                   />
                 </div>
               </div>
             </div>
 
-            <div className="p-4 bg-neutral-950 border-t border-neutral-800 flex justify-end gap-2">
+            <div className="p-4 bg-slate-950 border-t border-slate-800 flex justify-end gap-2">
               <button 
                 type="button"
                 onClick={() => setShowVasilhameForm(false)}
-                className="bg-neutral-900 text-neutral-400 px-4 py-2 rounded-xl text-xs"
+                className="bg-slate-900 text-slate-400 px-4 py-2 rounded-xl text-xs"
               >
                 Cancelar
               </button>
               <button 
                 type="submit"
-                className="bg-emerald-500 hover:bg-emerald-600 text-neutral-950 font-bold px-5 py-2.5 rounded-xl text-xs"
+                className="bg-red-500 hover:bg-red-600 text-white font-bold px-5 py-2.5 rounded-xl text-xs"
               >
                 Registrar Movimento
               </button>

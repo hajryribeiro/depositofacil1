@@ -301,7 +301,7 @@ export default function POS({
               placeholder="Buscar por nome, marca ou código de barras..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-neutral-950 border border-neutral-800 rounded-lg pl-10 pr-4 py-2 text-sm text-neutral-200 placeholder-neutral-500 focus:outline-none focus:border-emerald-500"
+              className="w-full bg-neutral-950 border border-neutral-800 rounded-lg pl-10 pr-4 py-2 text-sm text-neutral-200 placeholder-neutral-500 focus:outline-none focus:border-red-500"
             />
           </div>
           <button 
@@ -313,7 +313,7 @@ export default function POS({
                 alert(`[BIP!] Código de barras detectado: ${randomProduct.barcode || randomProduct.id}. Adicionado ao carrinho.`);
               }
             }}
-            className="flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-3 py-2 rounded-lg text-xs font-mono font-bold hover:bg-emerald-500/20 transition-all active:scale-95 shrink-0"
+            className="flex items-center gap-1 bg-red-500/10 border border-red-500/20 text-red-400 px-3 py-2 rounded-lg text-xs font-mono font-bold hover:bg-red-500/20 transition-all active:scale-95 shrink-0"
             title="Simular bipe de código de barras pela câmera"
           >
             <QrCode className="w-4 h-4" />
@@ -334,7 +334,7 @@ export default function POS({
                     <button
                       key={product.id}
                       onClick={() => addToCart(product)}
-                      className="bg-neutral-900 border border-neutral-800 p-3 rounded-xl text-left hover:border-emerald-500 transition-all group"
+                      className="bg-neutral-900 border border-neutral-800 p-3 rounded-xl text-left hover:border-red-500 transition-all group"
                     >
                       <div className="aspect-square bg-neutral-950 rounded-lg overflow-hidden mb-2 relative border border-neutral-800">
                         {product.photoUrl ? (
@@ -346,7 +346,7 @@ export default function POS({
                           Estoque: {stock}
                         </span>
                       </div>
-                      <p className="text-xs font-semibold text-neutral-200 line-clamp-1 group-hover:text-emerald-400 transition-colors">
+                      <p className="text-xs font-semibold text-neutral-200 line-clamp-1 group-hover:text-red-400 transition-colors">
                         {product.name}
                       </p>
                       <div className="flex justify-between items-center mt-1">
@@ -373,7 +373,7 @@ export default function POS({
                     <button
                       key={product.id}
                       onClick={() => addToCart(product)}
-                      className="bg-neutral-900 border border-neutral-800 p-3 rounded-xl text-left hover:border-emerald-500 transition-all group"
+                      className="bg-neutral-900 border border-neutral-800 p-3 rounded-xl text-left hover:border-red-500 transition-all group"
                     >
                       <div className="aspect-square bg-neutral-950 rounded-lg overflow-hidden mb-2 relative border border-neutral-800">
                         {product.photoUrl ? (
@@ -385,7 +385,7 @@ export default function POS({
                           Estoque: {stock}
                         </span>
                       </div>
-                      <p className="text-xs font-semibold text-neutral-200 line-clamp-1 group-hover:text-emerald-400 transition-colors">
+                      <p className="text-xs font-semibold text-neutral-200 line-clamp-1 group-hover:text-red-400 transition-colors">
                         {product.name}
                       </p>
                       <p className="text-xs font-bold text-neutral-100 font-mono mt-1">
@@ -404,10 +404,10 @@ export default function POS({
       <div className="w-full lg:w-[440px] bg-neutral-900 border border-neutral-800 rounded-2xl flex flex-col overflow-hidden shrink-0">
         <div className="p-4 border-b border-neutral-800 flex justify-between items-center bg-neutral-950">
           <div className="flex items-center gap-2">
-            <ShoppingCart className="w-4 h-4 text-emerald-400" />
+            <ShoppingCart className="w-4 h-4 text-red-400" />
             <h3 className="font-bold text-neutral-100 text-sm">Cupom Fiscal de Venda</h3>
           </div>
-          <span className="px-2.5 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <span className="px-2.5 py-0.5 rounded text-[10px] font-mono bg-red-500/10 text-red-400 border border-red-500/20">
             {cart.length} itens
           </span>
         </div>
@@ -507,13 +507,13 @@ export default function POS({
             <div className="flex bg-neutral-900 border border-neutral-800 p-0.5 rounded-lg shrink-0 text-xs">
               <button
                 onClick={() => { setOrderType(OrderType.RETIRADA); setDeliveryFee(0); }}
-                className={`px-2 py-1 rounded font-medium ${orderType === OrderType.RETIRADA ? "bg-emerald-500/10 text-emerald-400" : "text-neutral-400"}`}
+                className={`px-2 py-1 rounded font-medium ${orderType === OrderType.RETIRADA ? "bg-red-500/10 text-red-400" : "text-neutral-400"}`}
               >
                 Balcão
               </button>
               <button
                 onClick={() => { setOrderType(OrderType.ENTREGA); setDeliveryFee(7.50); }}
-                className={`px-2 py-1 rounded font-medium ${orderType === OrderType.ENTREGA ? "bg-emerald-500/10 text-emerald-400" : "text-neutral-400"}`}
+                className={`px-2 py-1 rounded font-medium ${orderType === OrderType.ENTREGA ? "bg-red-500/10 text-red-400" : "text-neutral-400"}`}
               >
                 Entrega
               </button>
@@ -565,7 +565,7 @@ export default function POS({
               <span className="text-neutral-400 font-mono">Forma de Pagamento</span>
               <button 
                 onClick={addSplit}
-                className="text-[10px] font-mono text-emerald-400 hover:underline"
+                className="text-[10px] font-mono text-red-400 hover:underline"
               >
                 + Dividir Pagamento
               </button>
@@ -633,7 +633,7 @@ export default function POS({
                 </div>
                 <div className="font-mono">
                   <span className="text-neutral-400">Troco: </span>
-                  <span className="font-bold text-emerald-400">R$ {changeDue.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</span>
+                  <span className="font-bold text-red-400">R$ {changeDue.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</span>
                 </div>
               </div>
             )}
@@ -660,14 +660,14 @@ export default function POS({
             <div className="flex flex-col gap-2 pt-2 border-t border-neutral-800/80">
               <div className="flex justify-between items-baseline font-mono">
                 <span className="text-xs text-neutral-400">TOTAL DA VENDA</span>
-                <span className="text-xl font-bold text-emerald-400">
+                <span className="text-xl font-bold text-red-400">
                   R$ {total.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </span>
               </div>
 
               <button
                 onClick={handleCompleteSale}
-                className="w-full bg-emerald-500 hover:bg-emerald-600 text-neutral-950 font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-95 shadow-[0_0_20px_rgba(16,185,129,0.15)] text-sm"
+                className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-95 shadow-[0_0_20px_rgba(239,68,68,0.15)] text-sm"
               >
                 <CheckCircle className="w-5 h-5" />
                 FINALIZAR VENDA
@@ -683,7 +683,7 @@ export default function POS({
           <div className="bg-neutral-900 border border-neutral-800 rounded-2xl w-full max-w-sm overflow-hidden shadow-2xl flex flex-col max-h-[85vh]">
             <div className="p-4 bg-neutral-950 border-b border-neutral-800 flex justify-between items-center">
               <h4 className="font-bold text-neutral-200 text-sm flex items-center gap-2">
-                <Printer className="w-4 h-4 text-emerald-400" />
+                <Printer className="w-4 h-4 text-red-400" />
                 Comprovante Gerado
               </h4>
               <button 
@@ -776,7 +776,7 @@ export default function POS({
                   const msg = encodeURIComponent(`Olá! Segue comprovante da sua compra no valor de R$ ${completedSale.total.toFixed(2)} realizada em ${new Date(completedSale.createdAt).toLocaleDateString("pt-BR")}. Obrigado!`);
                   window.open(`https://api.whatsapp.com/send?text=${msg}`);
                 }}
-                className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-neutral-950 py-2.5 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition-all"
+                className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2.5 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition-all"
               >
                 Enviar WhatsApp
               </button>

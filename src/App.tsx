@@ -11,6 +11,8 @@ import {
   getOrders,
   getAuditLogs,
   getClients,
+  getSuppliers,
+  getVasilhames,
   addSale,
   openCashierSession,
   closeCashierSession,
@@ -71,6 +73,8 @@ import SaaSAdmin from "./components/SaaSAdmin";
 import SettingsComponent from "./components/Settings";
 import Auth from "./components/Auth";
 import Reports from "./components/Reports";
+import LandingPage from "./components/LandingPage";
+import CRM from "./components/CRM";
 
 export default function App() {
   // Session States
@@ -78,6 +82,10 @@ export default function App() {
   const [activeCompanyId, setActiveCompanyId] = useState<string>("");
   const [currentUnit, setCurrentUnit] = useState<Unit | null>(null);
   const [activeTab, setActiveTab] = useState<string>("dashboard");
+
+  // Navigation State for Sales Page vs Auth
+  const [showAuthScreen, setShowAuthScreen] = useState<boolean>(false);
+  const [authInitialMode, setAuthInitialMode] = useState<"login" | "register">("login");
 
   const [saasLogoUrl, setSaasLogoUrl] = useState<string>(() => {
     return localStorage.getItem("saas_logo_url") || "";
@@ -99,6 +107,9 @@ export default function App() {
   const [bills, setBills] = useState<AccountBill[]>([]);
   const [orders, setOrders] = useState<CustomerOrder[]>([]);
   const [auditLogs, setAuditLogs] = useState<AuditLog[]>([]);
+  const [clients, setClients] = useState<Client[]>([]);
+  const [suppliers, setSuppliers] = useState<Supplier[]>([]);
+  const [vasilhames, setVasilhames] = useState<ReturnableVasilhame[]>([]);
 
   const [syncStatus, setSyncStatus] = useState<"idle" | "syncing" | "done">("idle");
 
@@ -125,6 +136,21 @@ export default function App() {
     };
   }, []);
 
+  // Lock outer viewport scrolling when user is authenticated to completely eliminate double scrollbars
+  useEffect(() => {
+    if (currentUser) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "unset";
+    };
+  }, [currentUser]);
+
   const reloadDatabase = () => {
     setCompanies(getCompanies());
     setUnits(getUnits());
@@ -136,6 +162,9 @@ export default function App() {
     setBills(getBills());
     setOrders(getOrders());
     setAuditLogs(getAuditLogs());
+    setClients(getClients());
+    setSuppliers(getSuppliers());
+    setVasilhames(getVasilhames());
   };
 
   // Find active company and session
@@ -183,6 +212,7 @@ export default function App() {
     setCurrentUnit(null);
     setActiveCompanyId("");
     setActiveTab("dashboard");
+    setShowAuthScreen(false);
   };
 
   // Onboarding registration
@@ -336,14 +366,32 @@ export default function App() {
     reloadDatabase();
   };
 
-  // Render Login if no session
+  // Render Landing Page or Login if no session
   if (!currentUser) {
+    if (!showAuthScreen) {
+      return (
+        <LandingPage 
+          onEnterApp={() => {
+            setAuthInitialMode("login");
+            setShowAuthScreen(true);
+          }}
+          onRegisterInterest={() => {
+            setAuthInitialMode("register");
+            setShowAuthScreen(true);
+          }}
+          saasLogoUrl={saasLogoUrl}
+        />
+      );
+    }
+
     return (
       <Auth 
         onLogin={handleLogin}
         onRegisterCompany={handleRegisterCompany}
         allUsers={users}
         logoUrl={saasLogoUrl}
+        initialMode={authInitialMode}
+        onBackToLanding={() => setShowAuthScreen(false)}
       />
     );
   }
@@ -351,13 +399,13 @@ export default function App() {
   // Tenant suspension check
   if (currentUser.role !== UserRole.SUPERADMIN && activeCompany && activeCompany.subscriptionStatus === SubscriptionStatus.CANCELED) {
     return (
-      <div className="min-h-screen bg-neutral-950 flex items-center justify-center p-6 text-center text-neutral-300">
-        <div className="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl max-w-sm space-y-4">
+      <div className="min-h-screen bg-slate-950 flex items-center justify-center p-6 text-center text-slate-300">
+        <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl max-w-sm space-y-4">
           <div className="w-12 h-12 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center mx-auto border border-red-500/20">
             <AlertTriangle className="w-6 h-6" />
           </div>
-          <h3 className="text-lg font-bold text-neutral-100 uppercase tracking-tight">Sua Conta foi Suspensa</h3>
-          <p className="text-xs text-neutral-400 leading-relaxed">
+          <h3 className="text-lg font-bold text-slate-100 uppercase tracking-tight">Sua Conta foi Suspensa</h3>
+          <p className="text-xs text-slate-400 leading-relaxed">
             O acesso para o depósito <strong>{activeCompany.name}</strong> foi temporariamente suspenso pelo administrador do SaaS devido a pendências de pagamento ou faturamento expirado.
           </p>
           <button 
@@ -372,7 +420,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-neutral-950 flex flex-col lg:flex-row text-neutral-200">
+    <div className="h-screen max-h-screen bg-slate-950 flex flex-col lg:flex-row text-slate-200 overflow-hidden">
       
       {/* Sidebar navigation */}
       <Sidebar 
@@ -479,6 +527,19 @@ export default function App() {
             bills={bills}
             onAddBill={handleAddBill}
             onUpdateBill={handleUpdateBill}
+          />
+        )}
+
+        {activeTab === "crm" && (
+          <CRM 
+            companyId={activeCompanyId}
+            clients={clients}
+            suppliers={suppliers}
+            vasilhames={vasilhames}
+            onAddClient={handleAddClient}
+            onUpdateClient={handleUpdateClient}
+            onAddSupplier={handleAddSupplier}
+            onAddVasilhame={handleAddVasilhame}
           />
         )}
 

@@ -205,7 +205,7 @@ export default function Products({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h2 className="text-xl font-bold text-neutral-100 flex items-center gap-2">
-            <Package className="w-5 h-5 text-emerald-400" />
+            <Package className="w-5 h-5 text-red-400" />
             Cadastro de Produtos
           </h2>
           <p className="text-xs text-neutral-400 mt-1">
@@ -248,7 +248,7 @@ export default function Products({
 
           <button
             onClick={handleOpenCreate}
-            className="flex items-center gap-1.5 bg-emerald-500 hover:bg-emerald-600 text-neutral-950 px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-[0_0_15px_rgba(16,185,129,0.15)] active:scale-95"
+            className="flex items-center gap-1.5 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-[0_0_15px_rgba(239,68,68,0.15)] active:scale-95"
           >
             <Plus className="w-4 h-4" />
             Novo Produto
@@ -265,7 +265,7 @@ export default function Products({
             placeholder="Buscar por nome do produto, marca, código de barras..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-neutral-950 border border-neutral-800 rounded-lg pl-10 pr-4 py-2 text-xs text-neutral-200 placeholder-neutral-500 focus:outline-none focus:border-emerald-500"
+            className="w-full bg-neutral-950 border border-neutral-800 rounded-lg pl-10 pr-4 py-2 text-xs text-neutral-200 placeholder-neutral-500 focus:outline-none focus:border-red-500"
           />
         </div>
 
@@ -342,7 +342,7 @@ export default function Products({
                 </div>
                 <div>
                   <span className="text-[9px] text-neutral-500 block uppercase">Lucro</span>
-                  <span className="font-bold text-emerald-400">R$ {profit.toFixed(1)}</span>
+                  <span className="font-bold text-red-400">R$ {profit.toFixed(1)}</span>
                 </div>
               </div>
 
@@ -355,7 +355,7 @@ export default function Products({
                 <div className="flex items-center gap-1.5">
                   <button
                     onClick={() => handleDuplicate(product)}
-                    className="p-2 hover:bg-neutral-800 rounded-lg text-neutral-400 hover:text-emerald-400 transition-colors"
+                    className="p-2 hover:bg-neutral-800 rounded-lg text-neutral-400 hover:text-red-400 transition-colors"
                     title="Duplicar Produto"
                   >
                     <Copy className="w-3.5 h-3.5" />
@@ -363,7 +363,7 @@ export default function Products({
 
                   <button
                     onClick={() => handleOpenEdit(product)}
-                    className="p-2 hover:bg-neutral-800 rounded-lg text-neutral-400 hover:text-emerald-400 transition-colors"
+                    className="p-2 hover:bg-neutral-800 rounded-lg text-neutral-400 hover:text-red-400 transition-colors"
                     title="Editar Produto"
                   >
                     <Edit2 className="w-3.5 h-3.5" />
@@ -376,7 +376,7 @@ export default function Products({
                       alert(`Produto ${product.name} ${updated.isActive ? "ativado" : "desativado"} com sucesso.`);
                     }}
                     className={`p-2 rounded-lg transition-colors ${
-                      product.isActive ? "text-emerald-400 hover:bg-emerald-500/10" : "text-red-400 hover:bg-red-500/10"
+                      product.isActive ? "text-red-400 hover:bg-red-500/10" : "text-neutral-500 hover:bg-neutral-500/10"
                     }`}
                     title={product.isActive ? "Desativar Produto" : "Ativar Produto"}
                   >
@@ -399,7 +399,7 @@ export default function Products({
             {/* Header */}
             <div className="p-4 bg-neutral-950 border-b border-neutral-800 flex justify-between items-center">
               <h3 className="font-bold text-neutral-200 text-sm flex items-center gap-2">
-                <Package className="w-4 h-4 text-emerald-400" />
+                <Package className="w-4 h-4 text-red-400" />
                 {editingProduct ? `Editar: ${editingProduct.name}` : "Cadastrar Novo Produto"}
               </h3>
               <button 
@@ -416,7 +416,7 @@ export default function Products({
               
               {/* SECTION 1: Identificação Básica */}
               <div className="space-y-4">
-                <h4 className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest border-b border-neutral-800 pb-1">
+                <h4 className="text-xs font-mono font-bold text-red-400 uppercase tracking-widest border-b border-neutral-800 pb-1">
                   1. Identificação Geral do Produto
                 </h4>
                 
@@ -430,7 +430,7 @@ export default function Products({
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Ex: Coca-Cola Lata Sabor Original 350ml"
-                      className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-emerald-500"
+                      className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-red-500"
                     />
                   </div>
 
@@ -443,7 +443,7 @@ export default function Products({
                       value={brand}
                       onChange={(e) => setBrand(e.target.value)}
                       placeholder="Ex: Coca-Cola, Heineken, Ambev"
-                      className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-emerald-500"
+                      className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-red-500"
                     />
                   </div>
                 </div>
@@ -455,7 +455,7 @@ export default function Products({
                     <select
                       value={category}
                       onChange={(e) => setCategory(e.target.value)}
-                      className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-2 py-2 text-xs text-neutral-300 focus:outline-none focus:border-emerald-500"
+                      className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-2 py-2 text-xs text-neutral-300 focus:outline-none focus:border-red-500"
                     >
                       {categories.map(c => (
                         <option key={c} value={c}>{c}</option>
@@ -471,7 +471,7 @@ export default function Products({
                       value={barcode}
                       onChange={(e) => setBarcode(e.target.value)}
                       placeholder="Código de Barras"
-                      className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-xs font-mono focus:outline-none focus:border-emerald-500"
+                      className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-xs font-mono focus:outline-none focus:border-red-500"
                     />
                   </div>
 
@@ -483,7 +483,7 @@ export default function Products({
                       value={internalCode}
                       onChange={(e) => setInternalCode(e.target.value)}
                       placeholder="Código SKU interno"
-                      className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-xs font-mono focus:outline-none focus:border-emerald-500"
+                      className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-xs font-mono focus:outline-none focus:border-red-500"
                     />
                   </div>
                 </div>
@@ -496,7 +496,7 @@ export default function Products({
                     onChange={(e) => setDescription(e.target.value)}
                     rows={2}
                     placeholder="Informações adicionais para nota, prateleira ou ponto de venda..."
-                    className="w-full bg-neutral-950 border border-neutral-800 rounded-lg p-3 text-xs focus:outline-none focus:border-emerald-500"
+                    className="w-full bg-neutral-950 border border-neutral-800 rounded-lg p-3 text-xs focus:outline-none focus:border-red-500"
                   />
                 </div>
 
@@ -508,14 +508,14 @@ export default function Products({
                     value={photoUrl}
                     onChange={(e) => setPhotoUrl(e.target.value)}
                     placeholder="https://..."
-                    className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-emerald-500"
+                    className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-red-500"
                   />
                 </div>
               </div>
 
               {/* SECTION 2: Apresentação e Precificação */}
               <div className="space-y-4">
-                <h4 className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest border-b border-neutral-800 pb-1">
+                <h4 className="text-xs font-mono font-bold text-red-400 uppercase tracking-widest border-b border-neutral-800 pb-1">
                   2. Embalagem, Estoque e Precificação
                 </h4>
 
@@ -612,14 +612,14 @@ export default function Products({
                 {costPrice > 0 && (
                   <div className="p-3 bg-neutral-950 rounded-lg border border-neutral-800 flex justify-between text-xs text-neutral-400 font-mono">
                     <span>Lucro Bruto: R$ {(sellPrice - costPrice).toFixed(2)}</span>
-                    <span className="text-emerald-400">Margem de Lucro: {markupPct.toFixed(1)}%</span>
+                    <span className="text-red-400">Margem de Lucro: {markupPct.toFixed(1)}%</span>
                   </div>
                 )}
               </div>
 
               {/* SECTION 3: Detalhes Fiscais e Retornáveis */}
               <div className="space-y-4">
-                <h4 className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest border-b border-neutral-800 pb-1">
+                <h4 className="text-xs font-mono font-bold text-red-400 uppercase tracking-widest border-b border-neutral-800 pb-1">
                   3. Logística Fina, Validade & Vasilhames
                 </h4>
 
@@ -655,7 +655,7 @@ export default function Products({
                       type="checkbox"
                       checked={isReturnable}
                       onChange={(e) => setIsReturnable(e.target.checked)}
-                      className="rounded border-neutral-800 bg-neutral-950 text-emerald-500 focus:ring-0 focus:ring-offset-0"
+                      className="rounded border-neutral-800 bg-neutral-950 text-red-500 focus:ring-0 focus:ring-offset-0"
                     />
                     Este produto é retornável? (Exige vasilhame ou casco vazio)
                   </label>
@@ -694,7 +694,7 @@ export default function Products({
               </button>
               <button 
                 type="submit"
-                className="bg-emerald-500 hover:bg-emerald-600 text-neutral-950 px-5 py-2.5 rounded-xl text-xs font-bold shadow-[0_0_15px_rgba(16,185,129,0.15)]"
+                className="bg-red-500 hover:bg-red-600 text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-[0_0_15px_rgba(239,68,68,0.15)]"
               >
                 Salvar Produto
               </button>

@@ -61,7 +61,7 @@ export default function Logistics({
     { key: OrderStatus.RECEBIDO, label: "Recebidos / Balcão", color: "border-sky-500/20 bg-sky-500/5 text-sky-400" },
     { key: OrderStatus.SEPARACAO, label: "Em Separação", color: "border-yellow-500/20 bg-yellow-500/5 text-yellow-400" },
     { key: OrderStatus.SAIU_ENTREGA, label: "Saiu para Entrega", color: "border-teal-500/20 bg-teal-500/5 text-teal-400" },
-    { key: OrderStatus.ENTREGUE, label: "Entregue / Concluído", color: "border-emerald-500/20 bg-emerald-500/5 text-emerald-400" }
+    { key: OrderStatus.ENTREGUE, label: "Entregue / Concluído", color: "border-red-500/20 bg-red-500/5 text-red-400" }
   ];
 
   // Route points for Simulator
@@ -79,7 +79,7 @@ export default function Logistics({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h2 className="text-xl font-bold text-neutral-100 flex items-center gap-2">
-            <Truck className="w-5 h-5 text-emerald-400" />
+            <Truck className="w-5 h-5 text-red-400" />
             Roteirização & Painel de Entregas
           </h2>
           <p className="text-xs text-neutral-400 mt-1">
@@ -92,7 +92,7 @@ export default function Logistics({
           <button
             onClick={() => setActiveTab("kanban")}
             className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
-              activeTab === "kanban" ? "bg-emerald-500/10 text-emerald-400" : "text-neutral-400"
+              activeTab === "kanban" ? "bg-red-500/10 text-red-400" : "text-neutral-400"
             }`}
           >
             Painel Kanban
@@ -100,7 +100,7 @@ export default function Logistics({
           <button
             onClick={() => setActiveTab("routesim")}
             className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
-              activeTab === "routesim" ? "bg-emerald-500/10 text-emerald-400" : "text-neutral-400"
+              activeTab === "routesim" ? "bg-red-500/10 text-red-400" : "text-neutral-400"
             }`}
           >
             Simulador GPS
@@ -108,7 +108,7 @@ export default function Logistics({
           <button
             onClick={() => setActiveTab("driver_portal")}
             className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
-              activeTab === "driver_portal" ? "bg-emerald-500/10 text-emerald-400" : "text-neutral-400"
+              activeTab === "driver_portal" ? "bg-red-500/10 text-red-400" : "text-neutral-400"
             }`}
           >
             Portal Celular do Motoboy
@@ -149,7 +149,7 @@ export default function Logistics({
                           className="bg-neutral-950 border border-neutral-850 p-4 rounded-xl space-y-3 hover:border-neutral-750 transition-all"
                         >
                           <div className="flex justify-between items-start">
-                            <span className="text-[9px] font-mono text-emerald-400 font-bold uppercase">
+                            <span className="text-[9px] font-mono text-red-400 font-bold uppercase">
                               #{order.id.substring(6, 11)}
                             </span>
                             <span className="text-[10px] text-neutral-400 font-mono font-bold">
@@ -206,7 +206,7 @@ export default function Logistics({
                                 <p className="text-[9px] text-teal-400 italic">Em rota com {order.deliveryPersonName}</p>
                                 <button
                                   onClick={() => onUpdateOrderStatus(order.id, OrderStatus.ENTREGUE)}
-                                  className="w-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 py-1 rounded font-bold"
+                                  className="w-full bg-red-500/10 border border-red-500/20 text-red-400 py-1 rounded font-bold"
                                 >
                                   Confirmar Entrega
                                 </button>
@@ -215,7 +215,7 @@ export default function Logistics({
 
                             {/* If delivered */}
                             {order.status === OrderStatus.ENTREGUE && (
-                              <span className="text-emerald-400 font-bold flex items-center gap-1">
+                              <span className="text-red-400 font-bold flex items-center gap-1">
                                 <CheckCircle2 className="w-3.5 h-3.5" /> Entrega Concluída
                               </span>
                             )}
@@ -255,7 +255,7 @@ export default function Logistics({
                 <polyline 
                   points="100,150 250,80 380,220 180,280" 
                   fill="none" 
-                  stroke="#10b981" 
+                  stroke="#ef4444" 
                   strokeWidth="3" 
                   strokeDasharray="8"
                   className="animate-pulse"
@@ -268,7 +268,7 @@ export default function Logistics({
                       cx={pt.x} 
                       cy={pt.y} 
                       r={pt.role === "depot" ? "9" : "6"} 
-                      fill={pt.role === "depot" ? "#10b981" : "#eab308"} 
+                      fill={pt.role === "depot" ? "#ef4444" : "#eab308"} 
                     />
                     <text 
                       x={pt.x + 10} 
@@ -301,7 +301,7 @@ export default function Logistics({
                       <p className="font-bold text-neutral-200">{d.name}</p>
                       <p className="text-[10px] text-neutral-500">{d.vehicle} | {d.phone}</p>
                     </div>
-                    <span className="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-emerald-500/10 text-emerald-400">
+                    <span className="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-red-500/10 text-red-400">
                       Disponível
                     </span>
                   </div>
@@ -326,7 +326,7 @@ export default function Logistics({
             {/* Mobile screen Header */}
             <div className="p-4 bg-neutral-900 border-b border-neutral-850 flex justify-between items-center">
               <div className="flex items-center gap-1.5">
-                <Smartphone className="w-4 h-4 text-emerald-400" />
+                <Smartphone className="w-4 h-4 text-red-400" />
                 <span className="text-[10px] font-mono text-neutral-200 font-bold uppercase">Portal Entregador</span>
               </div>
 
@@ -358,7 +358,7 @@ export default function Logistics({
                       key={order.id} 
                       className="bg-neutral-900 border border-neutral-800 p-3 rounded-xl space-y-3"
                     >
-                      <div className="flex justify-between font-mono text-[9px] text-emerald-400">
+                      <div className="flex justify-between font-mono text-[9px] text-red-400">
                         <span>ENTREGA DE BEBIDAS</span>
                         <span>R$ {order.total.toFixed(2)}</span>
                       </div>
@@ -376,7 +376,7 @@ export default function Logistics({
                           onUpdateOrderStatus(order.id, OrderStatus.ENTREGUE);
                           alert("Parabéns! Entrega concluída no portal do motoboy.");
                         }}
-                        className="w-full bg-emerald-500 hover:bg-emerald-600 text-neutral-950 font-bold py-2 rounded-lg text-[10px] transition-all"
+                        className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 rounded-lg text-[10px] transition-all"
                       >
                         Confirmar Entrega & Recebimento
                       </button>

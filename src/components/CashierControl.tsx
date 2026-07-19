@@ -177,7 +177,7 @@ export default function CashierControl({
       {/* Header */}
       <div>
         <h2 className="text-xl font-bold text-neutral-100 flex items-center gap-2">
-          <Warehouse className="w-5 h-5 text-emerald-400" />
+          <Warehouse className="w-5 h-5 text-red-400" />
           Controle & Fechamento de Caixa
         </h2>
         <p className="text-xs text-neutral-400 mt-1">
@@ -217,7 +217,7 @@ export default function CashierControl({
                         required
                         value={openingAmount}
                         onChange={(e) => setOpeningAmount(parseFloat(e.target.value) || 0)}
-                        className="w-full bg-neutral-950 border border-neutral-800 rounded-lg py-2 pl-9 pr-3 text-xs font-mono text-neutral-200 focus:outline-none focus:border-emerald-500"
+                        className="w-full bg-neutral-950 border border-neutral-800 rounded-lg py-2 pl-9 pr-3 text-xs font-mono text-neutral-200 focus:outline-none focus:border-red-500"
                       />
                     </div>
                   </div>
@@ -229,14 +229,14 @@ export default function CashierControl({
                       value={openingNotes}
                       onChange={(e) => setOpeningNotes(e.target.value)}
                       placeholder="Ex: Turno da Tarde - Balcão"
-                      className="w-full bg-neutral-950 border border-neutral-800 rounded-lg py-2 px-3 text-xs text-neutral-200 focus:outline-none focus:border-emerald-500"
+                      className="w-full bg-neutral-950 border border-neutral-800 rounded-lg py-2 px-3 text-xs text-neutral-200 focus:outline-none focus:border-red-500"
                     />
                   </div>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-emerald-500 hover:bg-emerald-600 text-neutral-950 font-bold py-3 rounded-xl text-xs transition-all flex items-center justify-center gap-2"
+                  className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-xl text-xs transition-all flex items-center justify-center gap-2"
                 >
                   <Unlock className="w-4 h-4" />
                   ABRIR CAIXA COM R$ {openingAmount.toFixed(2)}
@@ -263,7 +263,7 @@ export default function CashierControl({
           {/* Active stats card */}
           <div className="lg:col-span-8 space-y-6">
             <div className="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl relative overflow-hidden">
-              <div className="absolute right-4 top-4 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest font-bold">
+              <div className="absolute right-4 top-4 bg-red-500/10 text-red-400 border border-red-500/20 px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest font-bold">
                 Caixa Aberto / Operacional
               </div>
 
@@ -280,7 +280,7 @@ export default function CashierControl({
                 </div>
                 <div className="bg-neutral-950 p-4 rounded-xl border border-neutral-850">
                   <span className="text-[9px] text-neutral-500 font-mono block uppercase">Vendas Registradas</span>
-                  <span className="font-mono font-bold text-sm text-emerald-400">R$ {activeTotals?.salesTotal.toFixed(2)}</span>
+                  <span className="font-mono font-bold text-sm text-red-400">R$ {activeTotals?.salesTotal.toFixed(2)}</span>
                 </div>
                 <div className="bg-neutral-950 p-4 rounded-xl border border-neutral-850">
                   <span className="text-[9px] text-neutral-500 font-mono block uppercase">Reforços (Suprimento)</span>
@@ -341,13 +341,13 @@ export default function CashierControl({
                     <div key={i} className="py-2.5 flex justify-between items-center text-xs">
                       <div className="flex items-center gap-2">
                         <span className={`px-2 py-0.5 rounded text-[9px] font-mono font-bold uppercase ${
-                          mov.type === CashierMovementType.SANGRIA ? "bg-red-500/10 text-red-400" : "bg-emerald-500/10 text-emerald-400"
+                          mov.type === CashierMovementType.SANGRIA ? "bg-red-500/10 text-red-400" : "bg-rose-500/10 text-rose-400"
                         }`}>
                           {mov.type}
                         </span>
                         <span className="text-neutral-300 font-semibold">{mov.reason}</span>
                       </div>
-                      <span className={`font-mono font-bold ${mov.type === CashierMovementType.SANGRIA ? "text-red-400" : "text-emerald-400"}`}>
+                      <span className={`font-mono font-bold ${mov.type === CashierMovementType.SANGRIA ? "text-red-400" : "text-rose-400"}`}>
                         {mov.type === CashierMovementType.SANGRIA ? "-" : "+"} R$ {mov.amount.toFixed(2)}
                       </span>
                     </div>
@@ -383,7 +383,7 @@ export default function CashierControl({
                     onClick={() => setAdjType(CashierMovementType.SUPRIMENTO)}
                     className={`py-2 rounded-lg font-bold border transition-all ${
                       adjType === CashierMovementType.SUPRIMENTO 
-                        ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-400" 
+                        ? "bg-rose-500/10 border-rose-500/20 text-rose-400" 
                         : "bg-neutral-950 border-neutral-800 text-neutral-400"
                     }`}
                   >
@@ -419,7 +419,7 @@ export default function CashierControl({
                   value={adjReason}
                   onChange={(e) => setAdjReason(e.target.value)}
                   placeholder="Ex: Pagamento Motoboy Diária ou Troco Moedas"
-                  className="w-full bg-neutral-950 border border-neutral-800 rounded-lg py-2 px-3 text-xs text-neutral-200 focus:outline-none focus:border-emerald-500"
+                  className="w-full bg-neutral-950 border border-neutral-800 rounded-lg py-2 px-3 text-xs text-neutral-200 focus:outline-none focus:border-red-500"
                 />
               </div>
 
@@ -493,9 +493,9 @@ export default function CashierControl({
                         {/* Discrepancy show */}
                         <span className={`w-20 text-right font-bold ${
                           discrepancy === 0 
-                            ? "text-emerald-400" 
+                            ? "text-red-400" 
                             : discrepancy > 0 
-                              ? "text-teal-400" 
+                              ? "text-rose-400" 
                               : "text-red-400"
                         }`}>
                           {discrepancy === 0 ? "Bateu" : discrepancy > 0 ? `+ R$ ${discrepancy.toFixed(2)}` : `- R$ ${Math.abs(discrepancy).toFixed(2)}`}

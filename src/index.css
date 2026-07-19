@@ -6,6 +6,13 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
 body, html, button, input, select, textarea, span, div, p, h1, h2, h3, h4, h5, h6, table, th, td, a {
   font-family: "Montserrat", sans-serif !important;
 }

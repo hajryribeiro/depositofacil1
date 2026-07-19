@@ -140,7 +140,7 @@ export default function SettingsComponent({
       {/* Header */}
       <div>
         <h2 className="text-xl font-bold text-neutral-100 flex items-center gap-2">
-          <Settings className="w-5 h-5 text-emerald-400" />
+          <Settings className="w-5 h-5 text-red-400" />
           Configurações da Empresa
         </h2>
         <p className="text-xs text-neutral-400 mt-1">
@@ -154,7 +154,7 @@ export default function SettingsComponent({
           onClick={() => setActiveSection("general")}
           className={`px-4 py-2.5 text-xs font-semibold border-b-2 transition-all ${
             activeSection === "general" 
-              ? "border-emerald-400 text-emerald-400" 
+              ? "border-red-500 text-red-500" 
               : "border-transparent text-neutral-400 hover:text-neutral-200"
           }`}
         >
@@ -165,7 +165,7 @@ export default function SettingsComponent({
           onClick={() => setActiveSection("units")}
           className={`px-4 py-2.5 text-xs font-semibold border-b-2 transition-all ${
             activeSection === "units" 
-              ? "border-emerald-400 text-emerald-400" 
+              ? "border-red-500 text-red-500" 
               : "border-transparent text-neutral-400 hover:text-neutral-200"
           }`}
         >
@@ -176,7 +176,7 @@ export default function SettingsComponent({
           onClick={() => setActiveSection("users")}
           className={`px-4 py-2.5 text-xs font-semibold border-b-2 transition-all ${
             activeSection === "users" 
-              ? "border-emerald-400 text-emerald-400" 
+              ? "border-red-500 text-red-500" 
               : "border-transparent text-neutral-400 hover:text-neutral-200"
           }`}
         >
@@ -187,7 +187,7 @@ export default function SettingsComponent({
           onClick={() => setActiveSection("billing")}
           className={`px-4 py-2.5 text-xs font-semibold border-b-2 transition-all ${
             activeSection === "billing" 
-              ? "border-emerald-400 text-emerald-400" 
+              ? "border-red-500 text-red-500" 
               : "border-transparent text-neutral-400 hover:text-neutral-200"
           }`}
         >
@@ -274,7 +274,7 @@ export default function SettingsComponent({
 
               <button
                 type="submit"
-                className="bg-emerald-500 hover:bg-emerald-600 text-neutral-950 font-bold px-5 py-2.5 rounded-xl transition-all"
+                className="bg-red-500 hover:bg-red-600 text-white font-bold px-5 py-2.5 rounded-xl transition-all"
               >
                 Salvar Configurações
               </button>
@@ -301,7 +301,7 @@ export default function SettingsComponent({
               <h3 className="text-sm font-bold text-neutral-200">Unidades Físicas / Lojas Cadastradas</h3>
               <button
                 onClick={() => setShowUnitForm(true)}
-                className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-3 py-1.5 rounded-lg text-xs font-bold"
+                className="bg-red-500/10 border border-red-500/20 text-red-400 px-3 py-1.5 rounded-lg text-xs font-bold"
               >
                 + Cadastrar Nova Filial
               </button>
@@ -312,7 +312,7 @@ export default function SettingsComponent({
               {companyUnits.map((u) => (
                 <div key={u.id} className="p-4 bg-neutral-950 border border-neutral-850 rounded-xl flex justify-between items-center text-xs">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center">
                       <Store className="w-4 h-4" />
                     </div>
                     <div>
@@ -321,7 +321,7 @@ export default function SettingsComponent({
                     </div>
                   </div>
 
-                  <span className="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-emerald-500/10 text-emerald-400">
+                  <span className="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-red-500/10 text-red-400">
                     Ativa
                   </span>
                 </div>
@@ -367,7 +367,7 @@ export default function SettingsComponent({
                   </button>
                   <button 
                     type="submit"
-                    className="bg-emerald-500 hover:bg-emerald-600 text-neutral-950 font-bold px-3.5 py-1.5 rounded-lg"
+                    className="bg-red-500 hover:bg-red-600 text-white font-bold px-3.5 py-1.5 rounded-lg"
                   >
                     Salvar Filial
                   </button>
@@ -386,7 +386,7 @@ export default function SettingsComponent({
               <h3 className="text-sm font-bold text-neutral-200">Colaboradores & Cargos Autorizados</h3>
               <button
                 onClick={() => setShowUserForm(true)}
-                className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-3 py-1.5 rounded-lg text-xs font-bold"
+                className="bg-red-500/10 border border-red-500/20 text-red-400 px-3 py-1.5 rounded-lg text-xs font-bold"
               >
                 + Convidar Colaborador
               </button>
@@ -405,7 +405,7 @@ export default function SettingsComponent({
                     </div>
                   </div>
 
-                  <span className="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-neutral-900 text-emerald-400 border border-neutral-800">
+                  <span className="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-neutral-900 text-red-400 border border-neutral-800">
                     {usr.role}
                   </span>
                 </div>
@@ -468,7 +468,7 @@ export default function SettingsComponent({
                   </button>
                   <button 
                     type="submit"
-                    className="bg-emerald-500 hover:bg-emerald-600 text-neutral-950 font-bold px-3.5 py-1.5 rounded-lg"
+                    className="bg-red-500 hover:bg-red-600 text-white font-bold px-3.5 py-1.5 rounded-lg"
                   >
                     Adicionar Colaborador
                   </button>
@@ -499,7 +499,7 @@ export default function SettingsComponent({
             
             {/* Plan 1 */}
             <div className={`p-5 rounded-2xl border flex flex-col justify-between ${
-              company.subscriptionStatus === SubscriptionStatus.TRIAL ? "border-emerald-500 bg-emerald-500/5" : "border-neutral-800"
+              company.subscriptionStatus === SubscriptionStatus.TRIAL ? "border-red-500 bg-red-500/5" : "border-neutral-800"
             }`}>
               <div>
                 <span className="text-[10px] text-neutral-500 font-mono font-bold uppercase block">Demonstração</span>
@@ -511,7 +511,7 @@ export default function SettingsComponent({
               </div>
 
               {company.subscriptionStatus === SubscriptionStatus.TRIAL && (
-                <span className="mt-6 w-full text-center bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 py-2 rounded-lg text-xs font-bold block">
+                <span className="mt-6 w-full text-center bg-red-500/10 text-red-400 border border-red-500/20 py-2 rounded-lg text-xs font-bold block">
                   Plano Ativo no momento
                 </span>
               )}
@@ -519,7 +519,7 @@ export default function SettingsComponent({
 
             {/* Plan 2 */}
             <div className={`p-5 rounded-2xl border flex flex-col justify-between ${
-              company.planId === PlanId.BASICO ? "border-emerald-500 bg-emerald-500/5" : "border-neutral-800"
+              company.planId === PlanId.BASICO ? "border-red-500 bg-red-500/5" : "border-neutral-800"
             }`}>
               <div>
                 <span className="text-[10px] text-neutral-500 font-mono font-bold uppercase block">Popular</span>
@@ -530,7 +530,7 @@ export default function SettingsComponent({
               </div>
 
               {company.planId === PlanId.BASICO ? (
-                <span className="mt-6 w-full text-center bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 py-2 rounded-lg text-xs font-bold block">
+                <span className="mt-6 w-full text-center bg-red-500/10 text-red-400 border border-red-500/20 py-2 rounded-lg text-xs font-bold block">
                   Plano Ativo no momento
                 </span>
               ) : (
@@ -548,7 +548,7 @@ export default function SettingsComponent({
 
             {/* Plan 3 */}
             <div className={`p-5 rounded-2xl border flex flex-col justify-between ${
-              company.planId === PlanId.PROFISSIONAL ? "border-emerald-500 bg-emerald-500/5 animate-pulse" : "border-neutral-800"
+              company.planId === PlanId.PROFISSIONAL ? "border-red-500 bg-red-500/5 animate-pulse" : "border-neutral-800"
             }`}>
               <div>
                 <span className="text-[10px] text-amber-500 font-mono font-bold uppercase block">Empresas Grandes</span>
@@ -559,7 +559,7 @@ export default function SettingsComponent({
               </div>
 
               {company.planId === PlanId.PROFISSIONAL ? (
-                <span className="mt-6 w-full text-center bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 py-2 rounded-lg text-xs font-bold block">
+                <span className="mt-6 w-full text-center bg-red-500/10 text-red-400 border border-red-500/20 py-2 rounded-lg text-xs font-bold block">
                   Plano Ativo no momento
                 </span>
               ) : (
@@ -568,7 +568,7 @@ export default function SettingsComponent({
                     onUpdateCompanyPlan(company.id, PlanId.PROFISSIONAL);
                     alert("Upgrade de Sucesso! Sua assinatura foi promovida para o Plano Profissional (Múltiplas Lojas Liberadas).");
                   }}
-                  className="mt-6 w-full text-center bg-emerald-500 text-neutral-950 hover:bg-emerald-600 py-2 rounded-lg text-xs font-bold block"
+                  className="mt-6 w-full text-center bg-red-500 text-white hover:bg-red-600 py-2 rounded-lg text-xs font-bold block"
                 >
                   Upgrade de Plano
                 </button>

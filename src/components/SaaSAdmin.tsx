@@ -88,7 +88,7 @@ export default function SaaSAdmin({
       {/* Heading */}
       <div>
         <h2 className="text-xl font-bold text-neutral-100 flex items-center gap-2">
-          <Crown className="w-5 h-5 text-emerald-400" />
+          <Crown className="w-5 h-5 text-red-400" />
           Painel do Proprietário do SaaS (Superadmin)
         </h2>
         <p className="text-xs text-neutral-400 mt-1">
@@ -101,12 +101,12 @@ export default function SaaSAdmin({
         
         {/* MRR */}
         <div className="bg-neutral-900 border border-neutral-800 p-5 rounded-2xl flex flex-col justify-between h-32 relative overflow-hidden shadow-md">
-          <div className="absolute right-3 top-3 bg-emerald-500/5 p-2 rounded-lg border border-emerald-500/10 text-emerald-400">
+          <div className="absolute right-3 top-3 bg-red-500/5 p-2 rounded-lg border border-red-500/10 text-red-400">
             <DollarSign className="w-4 h-4" />
           </div>
           <div>
             <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest font-semibold block">SaaS MRR Ativo</span>
-            <p className="text-xl md:text-2xl font-bold text-emerald-400 font-sans tracking-tight mt-2">
+            <p className="text-xl md:text-2xl font-bold text-red-400 font-sans tracking-tight mt-2">
               R$ {saasStats.totalMRR.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
             </p>
           </div>
@@ -115,7 +115,7 @@ export default function SaaSAdmin({
 
         {/* Tenants Count */}
         <div className="bg-neutral-900 border border-neutral-800 p-5 rounded-2xl flex flex-col justify-between h-32 relative overflow-hidden shadow-md">
-          <div className="absolute right-3 top-3 bg-emerald-500/5 p-2 rounded-lg border border-emerald-500/10 text-emerald-400">
+          <div className="absolute right-3 top-3 bg-red-500/5 p-2 rounded-lg border border-red-500/10 text-red-400">
             <Users className="w-4 h-4" />
           </div>
           <div>
@@ -129,7 +129,7 @@ export default function SaaSAdmin({
 
         {/* Professional Tier */}
         <div className="bg-neutral-900 border border-neutral-800 p-5 rounded-2xl flex flex-col justify-between h-32 relative overflow-hidden shadow-md">
-          <div className="absolute right-3 top-3 bg-emerald-500/5 p-2 rounded-lg border border-emerald-500/10 text-emerald-400">
+          <div className="absolute right-3 top-3 bg-red-500/5 p-2 rounded-lg border border-red-500/10 text-red-400">
             <Crown className="w-4 h-4" />
           </div>
           <div>
@@ -138,12 +138,12 @@ export default function SaaSAdmin({
               {saasStats.professionalCount} Pro
             </p>
           </div>
-          <span className="text-[10px] font-mono text-emerald-400">Profissional R$ 299/mês</span>
+          <span className="text-[10px] font-mono text-red-400">Profissional R$ 299/mês</span>
         </div>
 
         {/* Trials count */}
         <div className="bg-neutral-900 border border-neutral-800 p-5 rounded-2xl flex flex-col justify-between h-32 relative overflow-hidden shadow-md">
-          <div className="absolute right-3 top-3 bg-emerald-500/5 p-2 rounded-lg border border-emerald-500/10 text-emerald-400">
+          <div className="absolute right-3 top-3 bg-red-500/5 p-2 rounded-lg border border-red-500/10 text-red-400">
             <Activity className="w-4 h-4" />
           </div>
           <div>
@@ -160,7 +160,7 @@ export default function SaaSAdmin({
       <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 space-y-6">
         <div>
           <h3 className="text-sm font-bold text-neutral-200 flex items-center gap-2">
-            <Image className="w-4 h-4 text-emerald-400" />
+            <Image className="w-4 h-4 text-red-400" />
             Configuração de Identidade Visual e Logomarca do SaaS
           </h3>
           <p className="text-xs text-neutral-400 mt-1">
@@ -233,7 +233,7 @@ export default function SaaSAdmin({
                   />
                   <label
                     htmlFor="saas-logo-file-picker"
-                    className="bg-emerald-500 hover:bg-emerald-600 text-neutral-950 font-bold px-4 py-2 rounded-lg text-xs cursor-pointer transition-all flex items-center gap-1.5 shadow-[0_0_15px_rgba(16,185,129,0.2)]"
+                    className="bg-red-500 hover:bg-red-600 text-white font-bold px-4 py-2 rounded-lg text-xs cursor-pointer transition-all flex items-center gap-1.5 shadow-[0_0_15px_rgba(239,68,68,0.2)]"
                   >
                     <Sparkles className="w-3.5 h-3.5" />
                     Selecionar Imagem
@@ -250,7 +250,7 @@ export default function SaaSAdmin({
                     placeholder="https://exemplo.com/sua-logo.png"
                     value={inputLogoUrl}
                     onChange={(e) => setInputLogoUrl(e.target.value)}
-                    className="flex-1 bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-xs text-neutral-200 focus:outline-none focus:border-emerald-500 font-mono"
+                    className="flex-1 bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-xs text-neutral-200 focus:outline-none focus:border-red-500 font-mono"
                   />
                   <button
                     onClick={() => {
@@ -329,7 +329,7 @@ export default function SaaSAdmin({
                       <span className="text-[10px] text-neutral-500">Documento: {company.document || "Isento"} | {companyUsersCount} usuários</span>
                     </td>
                     <td className="py-4 text-neutral-400">
-                      ID: <span className="text-emerald-400">{company.id}</span>
+                      ID: <span className="text-red-400">{company.id}</span>
                     </td>
                     <td className="py-4">
                       <select
@@ -354,8 +354,8 @@ export default function SaaSAdmin({
                     <td className="py-4">
                       <span className={`px-2.5 py-0.5 rounded text-[10px] font-bold uppercase ${
                         isActive 
-                          ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" 
-                          : "bg-red-500/10 text-red-400 border border-red-500/20"
+                          ? "bg-red-500/10 text-red-400 border border-red-500/20" 
+                          : "bg-neutral-800 text-neutral-400 border border-neutral-700"
                       }`}>
                         {isActive ? "ATIVO" : "BLOQUEADO"}
                       </span>
@@ -369,7 +369,7 @@ export default function SaaSAdmin({
                         className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${
                           isActive 
                             ? "bg-red-500/10 border-red-500/20 text-red-400 hover:bg-red-500/20" 
-                            : "bg-emerald-500/10 border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/20"
+                            : "bg-red-500/10 border-red-500/20 text-red-400 hover:bg-red-500/20"
                         }`}
                       >
                         {isActive ? "Bloquear Tenant" : "Desbloquear Tenant"}
